@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% block content %}        
+{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+{% block content %}
 <section id="primary">
     <div id="content" role="main">
-    {% for article in articles %}  
+
         <article>
 
             <header class="entry-header">
@@ -22,17 +23,7 @@
             </footer><!-- #entry-meta -->
 
         </article>
-    {% else %}
-        <article>
-            <header class="entry-header">
-                <h1 class="entry-title">Nothing Found</h1>
-            </header><!-- .entry-header -->
 
-            <div class="entry-content">
-                <p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
-            </div><!-- .entry-content -->
-        </article>
-    {% endfor %}
     </div><!-- #content -->
 </section><!-- #primary -->
 {% endblock content %}

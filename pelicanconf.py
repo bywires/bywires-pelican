@@ -7,6 +7,10 @@ SITEURL = ''
 
 TIMEZONE = 'America/New_York'
 
+DATE_FORMATS = {
+    'en': '%B %d, %Y',
+}
+
 DEFAULT_LANG = u'en'
 
 DEFAULT_PAGINATION = 5
