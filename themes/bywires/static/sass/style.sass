@@ -1,0 +1,186 @@
+@import "reset"
+
+$background-color: white
+
+$content-font: "Helvetica Neue", Helvetica, Arial, sans-serif
+$content-font-color: #003E3C
+
+$content-header-font: $content-font
+$content-header-font-color: #D61620
+
+$content-accent-color: #91D89F
+$content-secondary-color: #0BB993
+
+$content-link-color: #65909A
+$content-link-visited-color: darken($content-link-color, 20%)
+
+$nav-font: "HelveticaNeue-Light", "Helvetica Neue Light", $content-font
+
+%bywires-header-1
+  margin-bottom: 10px
+  font-family: $content-header-font
+  color: $content-header-font-color
+  font-size: 32px
+  font-weight: bold
+  line-height: 36px
+  letter-spacing: 0.1em
+          
+  a
+    color: inherit
+    text-decoration: none
+        
+%bywires-header-2
+  font-size: 20px
+  font-weight: bold
+  color: $content-header-font-color
+  margin: 15px 0
+
+  a
+    color: $content-link-color
+
+  &:visited
+    color: $content-link-visited-color
+
+%bywires-meta
+  font-size: 14px
+
+%bywires-content-block
+  display: block
+  padding: 10px 0
+
+
+body
+  font-family: $content-font
+  color: $content-font-color
+  background: $background-color
+
+
+input[type="text"]
+  display: inline-block
+  border: 1px solid #DDD
+  border-radius: 5px
+  padding: 5px
+
+
+nav
+  margin: 20px
+  border-bottom: 2px solid #EEE
+
+  &>ul
+    display: inline-block
+
+    &>li
+      display: inline-block
+
+      &>ul
+        display: none
+
+      a
+        display: inline-block
+        padding: 30px 15px 15px 15px
+        margin-bottom: -2px
+        font-family: $nav-font
+        color: #BBB
+        letter-spacing: 0.12em
+        text-decoration: none
+
+        &:hover
+          border-bottom: 2px solid #D61620
+          color: lighten(desaturate($content-font-color, 90%), 40%)
+
+  #search-form
+    display: inline-block
+    padding: 0 15px 7px 15px
+    margin-bottom: -2px
+    border-bottom: 2px solid transparent
+
+    &:focus, &:hover
+      border-bottom: 2px solid #D61620
+
+    .assistive-text
+      display: none
+
+#page
+  max-width: 800px
+
+
+#branding
+  display: none
+
+
+#primary
+  padding: 20px
+
+  #content
+    .breadcrumbs
+      margin-bottom: 10px
+      @extend %bywires-meta
+
+    .entry-header
+      .entry-title
+        @extend %bywires-header-1
+
+      .entry-meta
+        color: $content-secondary-color
+        margin-bottom: 10px
+        @extend %bywires-meta
+
+    h4
+      @extend %bywires-header-2
+
+  #search
+    .page-header
+      @extend %bywires-header-1
+
+    .entry-title
+      @extend %bywires-header-2
+
+  a
+    color: $content-link-color
+    
+    &:visited
+      color: $content-link-visited-color
+
+  .entry-content
+    blockquote
+      margin: 15px 20px
+      border-left: 4px solid $content-accent-color
+      padding-left: 16px
+
+    p, li, dt, dd
+      font-size: 16px
+      line-height: 20px
+
+    p, ul, ol
+      @extend %bywires-content-block
+
+    em
+      font-style: italic
+      color: $content-accent-color
+
+    ul, ol
+      list-style-type: circle
+      margin-left: 15px
+      padding-left: 5px
+
+    dt
+      font-weight: bold
+      font-style: italic
+
+    dd
+      padding-left: 15px
+      margin: 10px 0
+
+  .entry-meta
+    border-top: 1px solid #EEE
+    border-bottom: 2px solid #EEE
+    
+    padding: 15px 0
+    margin: 20px 0 40px 0
+
+    .share-links, .prev-next-links
+      li
+        display: inline
+
+    .entry-date, .share-links, .prev-next-links, .edit-linky
+      @extend %bywires-content-block

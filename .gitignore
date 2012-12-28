@@ -1,6 +1,7 @@
 *~
 *#
 .#*
-output/
 *.pid
 *.pyc
+output/
+.sass-cache/
