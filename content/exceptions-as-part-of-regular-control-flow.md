@@ -9,22 +9,17 @@ an interesting statement to parse. We know what an exception is, but the
 definition of control flow is a little fuzzy, so lets clarify things a
 bit.
 
-</p>
-
-<p>
-> </p>
+> 
 >
 > In computer science, control flow (or alternatively, flow of control)
 > refers to the order in which the individual statements, instructions,
 > or function calls of an imperative or a declarative program are
 > executed or evaluated.
 >
-> </p>
+> 
 > <cite>[http://en.wikipedia.org/wiki/Control\_flow][]</cite>
 >
-> <p>
-
-</p>
+>
 
 Immediately I'm confused. Is it possible to use an exception and not
 effect control flow? Nope. Exceptions *are* a means of controlling flow.
@@ -34,39 +29,33 @@ and unhelpful. Normal? Compared to what? What they're trying to get at
 is that they don't believe exceptions should be used unless there is an
 application error.
 
-</p>
-
 This seems odd considering that business layer classes aren't
 necessarily made for only one code path or even one application and
 therefore lack context to determine the exceptionality of the condition.
 I touch on this a bunch in my [Exceptions vs Null][] article.
-
-</p>
 
 There are lots of "crazy" things you can do with exceptions and if
 you're interested in seeing more check out [this article][] on
 [c2.com][]. Here I will only be discussing three usages I found
 particularly interesting.
 
-</p>
-
-#### Exceptions as return values
-
-</p>
+## Exceptions as return values
 
 This example comes from [c2.com][]. I think even people who have never
 thought deeply about exception usage would never dream up this code.
 Still, I believe this might be the perfect example of what people are
 talking about when they say not to use exceptions for control flow.
 
-</p>
-
-<p>
 ~~~~ {name="code"}
-void search( TreeNode node, Object data ) throws ResultException {    if (node.data.equals( data ))        throw new ResultException( node );    else {        search( node.leftChild, data );        search( node.rightChild, data );    }}
+void search( TreeNode node, Object data ) throws ResultException {
+    if (node.data.equals( data ))
+        throw new ResultException( node );
+    else {
+        search( node.leftChild, data );
+        search( node.rightChild, data );
+    }
+}
 ~~~~
-
-</p>
 
 Get it now? As a starting point I think we can all agree that this it
 batty. Its a search algorithm that throws an exception upon *success*.
@@ -74,18 +63,12 @@ Really? The article correctly points out that this is a violation of the
 [Principle of Least Astonishment][]. I know this code make me feel
 violated.
 
-</p>
+## Exceptions as commands to the caller
 
-#### Exceptions as commands to the caller
-
-</p>
-
-<p>
 ~~~~ {name="code"}
-} catch(MyService_Exception_CouldNotBeReached $e) {    throw new MyOtherService_Exception_Retry("Couldn't reach my service, retry!");}
+} catch(MyService_Exception_CouldNotBeReached $e) {
+    throw new MyOtherService_Exception_Retry("Couldn't reach my service, retry!");}
 ~~~~
-
-</p>
 
 This exception seems to be commanding the caller to retry something.
 Like the previous example, this also breaks the [Principle of Least
@@ -95,22 +78,15 @@ and follow out some other action to continue. This is a
 application-agnostic service making application-specific decisions
 (whether or not to retry). No thank you.
 
-</p>
-
-#### Exceptions as loop termination conditions
-
-</p>
+## Exceptions as loop termination conditions
 
 [c2.com][] offers us another gem, and I don't mean that negatively.
 
-</p>
-
-<p>
 ~~~~ {name="code"}
-try {    for (int i = 0; /*wot no test?*/ ; i++)        array[i]++;} catch (ArrayIndexOutOfBoundsException e) {}
+try {
+    for (int i = 0; /*wot no test?*/ ; i++)
+        array[i]++;} catch (ArrayIndexOutOfBoundsException e) {}
 ~~~~
-
-</p>
 
 The first thing when I thought when I saw this was "What about things
 like Python's StopIteration?" One line later its mentioned. Yay! This
@@ -121,8 +97,6 @@ I'd like to know more about the decision making that went into the the
 design of feature but so far have failed to find any discussions on the
 matter.
 
-</p>
-
 All that said, I'm not sure how I feel about the name - "stop"
 iteration. Sounds like the service commanding its caller. If I were to
 use a exception-terminated loop I'd prefer to explicitly specify the
@@ -130,16 +104,12 @@ exception type rather than using a language generic exception with a
 name that is a command. Maybe something like this (which I would not be
 surprised to find already exists somewhere):
 
-</p>
-
-<p>
 ~~~~ {name="code"}
-until(RecordNotFoundException $e) {    print $recordSet->getNext()->getLabel() . "\n";}
+until(RecordNotFoundException $e) {
+    print $recordSet->getNext()->getLabel() . "\n";}
 ~~~~
 
-</p>
-
-  [http://en.wikipedia.org/wiki/Control\_flow]: http://en.wikipedia.org/wiki/Control_flow
+[http://en.wikipedia.org/wiki/Control\_flow]: http://en.wikipedia.org/wiki/Control_flow
   [Exceptions vs Null]: http://blog.bywires.com/2010/08/exceptions-vs-null.html
   [this article]: http://c2.com/cgi/wiki?DontUseExceptionsForFlowControl
   [c2.com]: http://c2.com/

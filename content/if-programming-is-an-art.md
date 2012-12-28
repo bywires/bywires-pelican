@@ -10,27 +10,18 @@ fine art like painting or sculpture, or perhaps solving problems despite
 walking blindly through the realm of the unknown. Donald Knuth says in
 [Computer Programming as an Art][Donald Knuth]:
 
-</p>
-
-<p>
-> </p>
+> 
 > Science is knowledge which we understand so well that we can teach it
 > to a computer; and if we don't fully understand something, it is an
 > art to deal with it.
 >
-> <p>
-
-</p>
+>
 
 Interesting... intriguing... but useful? When we hear this premise,
 *programming is an art*, what argument is it supporting? Or is it simply
 an observation devoid of practical value?
 
-</p>
-
-#### Beautiful code?
-
-</p>
+## Beautiful code?
 
 When the *common programmer* says *programming is an art* I believe they
 usually mean that they strive for *beauty* in their code. I also believe
@@ -41,8 +32,6 @@ books and probably not speaking at any conferences but they're smart
 folks, have significant experience, and they get a lot done. I would put
 myself in this group.
 
-</p>
-
 I wrote *beautiful* code years ago. My code would have been tweaked
 repeatedly such that all its components seemed to be where they belonged
 by the end of my projects. In my gut it *felt* beautiful, but beautiful
@@ -51,16 +40,10 @@ knowing why I was doing what I was doing, how it was good, and how it
 was bad. I was ignorant of just about every other meaningful attribute
 of my code.
 
-</p>
-
 My ability to compose such *beauty* created an internal illusion of my
 own expertise. What I did was working, wasn't it?
 
-</p>
-
-#### Beauty has no value in code
-
-</p>
+## Beauty has no value in code
 
 Try putting a monetary value on the beauty of code. How would you come
 up with such a number? Could you measure it without defining beauty in
@@ -69,13 +52,9 @@ objectively measurable attributes? It would seem not. If art and beauty
 are simply imprecise terms for a conglomeration of these objective
 attributes, does it not detract from our discourse to use them at all?
 
-</p>
-
 Beauty is not one thing to all people. It is subjective and as such it
 is a terrible attribute for comparison. Is the Mona Lisa more beautiful
 than [Jackass 3D][]? I don't know, I'm sick. Really sick.
-
-</p>
 
 Since beauty is subjective, anyone could claim that their code is
 beautiful and they'd be right and you'd also be right even if you
@@ -84,8 +63,6 @@ said so. It levels the playing field. Differences in coding practices
 become a matter of personal taste with no connection to real world
 consequences like expenditure of time and money. That is the true harm
 in this kind of thinking.
-
-</p>
 
 Maybe you write medical software so testability is extremely important.
 Maybe you write embedded software that will never be changed after its
@@ -98,16 +75,10 @@ that your code will go through in its lifetime and the team that will
 see to those changes. This *business knowledge* should inform your
 coding practices, not some misguided quest for *art*.
 
-</p>
-
-#### Shit, I work with artists
-
-</p>
+## Shit, I work with artists
 
 My advice to those out there trying to make the case for less *art* and
 more of a practical approach to coding would be to:
-
-</p>
 
 -   Analyze the code, coding practices, and tools you use. What makes it
     hard to meet your business needs? Look at specific cases, because
@@ -120,8 +91,6 @@ more of a practical approach to coding would be to:
     Don't gain the reputation of the *code nazi*.
 -   **Read about how other people solve problems.**
 
-</p>
-
-  [Donald Knuth]: http://www.paulgraham.com/knuth.html
+[Donald Knuth]: http://www.paulgraham.com/knuth.html
   [Guido van Rossum, and Bjarne Stroustrup]: http://onlamp.com/pub/a/onlamp/2005/06/30/artofprog.html
   [Jackass 3D]: http://www.youtube.com/watch?v=fKwjU_pSSW4

@@ -8,16 +8,12 @@ This year I began to learn to play the drums. Its been fun but I am not
 the most dedicated student. Its a hobby and I slack off a lot, but I
 really would like to get better.
 
-</p>
-
 I first got interested in the drums when I tried them out on Guitar
 Hero. It was fun playing with friends and you could play for hours
 without thinking about it. You'd see yourself getting better and more
 comfortable. You'd notice what got tired or sore after playing for 3
 hours so you'd adjust or do some Google-ing and find out how *real*
 drummers do it.
-
-</p>
 
 Guitar Hero certainly doesn't have the capacity to teach you like a
 human teacher could. It doesn't how the technique you play with, and
@@ -26,8 +22,6 @@ scheduled time, which at this point in my life is more than I want to
 give. Over the weekend I set out on a hunt for something like Guitar
 Hero with a few extra requirements.
 
-</p>
-
 -   Work with a Alesis DM6 electric drum kit
 -   Runs on Ubuntu
 -   Can load songs of a format which can be easily found for free online
@@ -35,16 +29,10 @@ Hero with a few extra requirements.
 -   Scrolls music vertically (like Guitar Hero)
 -   Rates your ability to play with the song (like Guitar Hero)
 
-</p>
-
 (Note: I realize some electric kits can be connected to Guitar Hero
 directly but mine cannot. It has a USB-out, not MIDI-out.)
 
-</p>
-
-#### Synthesia via PlayOnLinux
-
-</p>
+## Synthesia via PlayOnLinux
 
 My search brought me through a graveyard of abandoned projects but
 eventually I found [Synthesia][]. Synthesia, as advertised, is *almost*
@@ -52,16 +40,12 @@ what I want. Its actually made for learning/practicing piano, but it
 works off MIDI tracks, so theoretically it can work with other
 instruments as well.
 
-</p>
-
 Synthesia does not have an official Linux version. There is a forked
 Linux version, [Linthesia][], but it doesn't have a 64-bit version and
 [Synthesia's wiki noted it was old and missing features][]. For a while
 I dug through discussion forums talking about how they managed to get
 Synthesia to work with [Wine][], but experiences seemed to vary and
 honestly I didn't want to dig in that deep.
-
-</p>
 
 Luckily I ended up stumbling upon the [PlayOnLinux][] which, just by
 chance, [added support for Synthesia two weeks ago][]. PlayOnLinux is a
@@ -73,8 +57,6 @@ Synthesia. Lastly, I tweaked the Wine settings through PlayOnLinux to
 have Synthesia run in "windowed" mode by following [these
 instructions][1].
 
-</p>
-
 From here Synthesia worked immediately with my wife's MIDI keyboard.
 Some articles suggest installing [Timidity][], which may be necessary in
 some use cases but not for mine. I simply had the keyboard input set to
@@ -82,15 +64,9 @@ the MIDI keyboard, and the output also set to the MIDI keyboard. I had
 installed Timidity but it didn't seem to be necessary and it crashed
 once for me so I removed it.
 
-</p>
-
-#### Is that it for drumming with Synthesia?
-
-</p>
+## Is that it for drumming with Synthesia?
 
 No.
-
-</p>
 
 This is where I've left off. Synthesia registers my drum hits and can
 output to my drum kit. I tried downloading MIDI files with percussion
@@ -103,9 +79,7 @@ with MIDI at all so this could be a completely ignorant assessment but
 for now its what I'm working on. When/If I find a good solution I will
 post it.
 
-</p>
-
-  [Synthesia]: http://synthesiagame.com/
+[Synthesia]: http://synthesiagame.com/
   [Linthesia]: http://sourceforge.net/projects/linthesia/
   [Synthesia's wiki noted it was old and missing features]: http://www.synthesiagame.com/wiki/Linux_version
   [Wine]: http://www.winehq.org/

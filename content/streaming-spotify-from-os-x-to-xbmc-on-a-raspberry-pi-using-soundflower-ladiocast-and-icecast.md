@@ -11,24 +11,16 @@ like all 3rd party Spotify libraries at the moment, seems to require a
 Spotify Premium account. If you, like me, aren't ready to spend \$10 a
 month for the service then read on.
 
-</p>
-
 The next option I considered was streaming from my Spotify desktop
 client on my laptop running OS X to XBMC. XBMC can play a [PLS file][]
 without any extra plugins installed so I rolled with that. I just needed
 to create a stream from my laptop running OS X which the PLS file would
 point to.
 
-</p>
-
 For \$59 you can do this in a couple of seconds using [Nicecast][]. I
 didn't want to spend \$59 so I continued on my quest for *free*.
 
-</p>
-
 Here are some brief descriptions of the software you're going to use:
-
-</p>
 
 Soundflower
 :   "Soundflower is a MacOS system extension that allows applications to
@@ -42,13 +34,9 @@ LadioCast
 :   "LadioCast is a software running on Mac OS X to stream digital audio
     such as Internet radio program." It functions as an audio source for
     your Icecast server.
-:   
+:
 
-</p>
-
-#### Streaming audio from OS X
-
-</p>
+## Streaming audio from OS X
 
 1.  Install [Soundflower][]
 2.  System Preferences \> Sound \> Output \> Soundflower (2ch)
@@ -78,38 +66,23 @@ LadioCast
 8.  Play some music from Spotify (continuously loop it for testing
     purposes)
 
-</p>
-
-#### Receiving streaming audio on Rasperry Pi with XBMC
-
-</p>
+## Receiving streaming audio on Rasperry Pi with XBMC
 
 Create PLS file in a directory you can access from XBMC.
 
-</p>
-
-<p>
 ~~~~ {name="code"}
 [playlist]File1=http://YOUR_MACS_IP:8000/streamTitle1=My StreamLength1=-1Version=2
 ~~~~
 
-</p>
-
 Then from XBMC \> Music \> Files, browse to the PLS file and "play" it.
-
-</p>
 
 After a few seconds you should hear your music. If its choppy, like mine
 was initially, try tweaking the *Quality Level* setting in your
 LadioCast Icecast stream settings.
 
-</p>
-
 Enjoy!
 
-</p>
-
-  [Spotify]: http://www.spotify.com
+[Spotify]: http://www.spotify.com
   [Raspberry Pi]: http://www.raspberrypi.org/
   [XBMC]: http://xbmc.org/
   [Spotimc]: https://github.com/mazkolain/spotimc

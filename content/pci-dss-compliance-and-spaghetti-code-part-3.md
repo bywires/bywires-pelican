@@ -13,12 +13,15 @@ need code that takes user input, builds a request from that input, sends
 that request to the payment gateway, and gets a response back so we can
 act accordingly.
 
-<p>
 ~~~~ {.brush: .php}
-$factory = new RequestFactory();// get sale builder$builder = $factory->buildSaleRequest();// get credit card, so we can set it$builder->withCreditCard()     ->setCardType($_POST['cardType'])    ->setCardNumber($_POST['cardNumber'])    ->setExpirationDate($_POST['expirationDate']);// get address, so we can set it$builder->withBillingAddress()    ->setCity($_POST['city'])    ->setState($_POST['state']);// send request to payment gateway$response = $builder->execute();
+$factory = new RequestFactory();// get sale builder$builder = $factory->buildSaleRequest();// get credit card, so we can set it$builder->withCreditCard()
+     ->setCardType($_POST['cardType'])
+    ->setCardNumber($_POST['cardNumber'])
+    ->setExpirationDate($_POST['expirationDate']);// get address, so we can set it$builder->withBillingAddress()
+    ->setCity($_POST['city'])
+    ->setState($_POST['state']);// send request to payment gateway$response = $builder->execute();
 ~~~~
 
-</p>
 This seems pretty simple. I have objects to accept my user input which
 execute the request and get the response. Marvellous. Under the hood its
 slightly less simple if you aren't particularly familiar with the
@@ -28,9 +31,8 @@ slightly less simple if you aren't particularly familiar with the
 Today I'll start at the surface with our [creational patterns][] being
 used here, the Factory and Builder pattern.
 
-#### Factory pattern
+## Factory pattern
 
-</p>
 [Factories][Factory pattern], like all other creational patterns, create
 new objects. At first they are often understood as a way to make its
 consumer get different *types* of object, which is correct, but people
@@ -40,10 +42,18 @@ place to stowaway configuration information. In Factories the
 configuration can be centralized, rather than forcing the consumer code
 to have to repeat configuration each time. For example:
 
-<p>
-    class CarFactory {    public function create() {        $car = new Car();        if($this->config->useElectricCars()) {            $car->setEngine(new ElectricEngine());        } else {            $car->setEngine(new EnvironmentDestroyingBeastEngine());        }        return $car;    }}
+class CarFactory {
+    public function create() {
+        $car = new Car();
+        if($this->config->useElectricCars()) {
+            $car->setEngine(new ElectricEngine());
+        } else {
+            $car->setEngine(new EnvironmentDestroyingBeastEngine());
+        }
+        return $car;
+    }
+}
 
-</p>
 We encapsulate the querying of the "config" object into this Factory
 method so we don't need to have other parts of the system be aware of
 this "config" or aware of any configuration of this object at all.
@@ -54,9 +64,8 @@ them onto the Request object that gets returned for consumption. This
 way other code need not worry about where those come from. We've made
 that decision and we've encapsulated it in a Factory.
 
-#### Builder pattern
+## Builder pattern
 
-</p>
 Most people I've seen learning about the [Builder pattern][] don't
 really get it for a while. This was true for myself as well. We know
 what it is basically - a class with a bunch of methods you can call to
@@ -69,47 +78,42 @@ you need only one implementation now.
 Here are a few indicators to help you know when its time to use a
 Builder.
 
-##### Indicator \#1: Wiring together collaborators in application code
+### Indicator \#1: Wiring together collaborators in application code
 
-</p>
 Are you doing this in your application code? You've written a library to
 create cars and car parts and everywhere you use this library you're
 repeating this process...
 
-<p>
-    $carPartFactory = new CarPartFactory();$carFactory = new CarFactory();$car = $carFactory->create();$car->setEngine($carPartFactory->createElectricEngine())    ->setWheels($carPartFactory->createGoodYearTires(4))    ->setStereo($carPartFactory->createBadAssStereo());
+$carPartFactory = new CarPartFactory();$carFactory = new CarFactory();$car = $carFactory->create();$car->setEngine($carPartFactory->createElectricEngine())
+    ->setWheels($carPartFactory->createGoodYearTires(4))
+    ->setStereo($carPartFactory->createBadAssStereo());
 
-</p>
 You're creating more than one factory to wire together collaborators.
 Its Builder time, bitches.
 
-<p>
-    $carBuilder = new CarBuilder();$car = $carBuilder->addElectricEngine()                  ->addGoodYearTires(4)                  ->addBadAssStereo()                  ->build();
+$carBuilder = new CarBuilder();$car = $carBuilder->addElectricEngine()
+                  ->addGoodYearTires(4)
+                  ->addBadAssStereo()
+                  ->build();
 
-</p>
 Its easier to use, less duplication, easier to read, *and* if you ever
 need to vary that creation process its already in place.
 
-##### Indicator \#2: Factory method with optional parameters
+### Indicator \#2: Factory method with optional parameters
 
-</p>
 Optional parameters are terrible. I think thats a whole post al by
 itself. For now, if you find yourself doing this...
 
-<p>
-    public function create($first, $last, $middle = '', $prefix = '', $suffix = '')
+public function create($first, $last, $middle = '', $prefix = '', $suffix = '')
 
-</p>
 ...do this instead...
 
-<p>
-    $builder->first($first)        ->last($last)        ->middle($middle);
+$builder->first($first)
+        ->last($last)
+        ->middle($middle);
 
-</p>
+### Builders in Builders
 
-##### Builders in Builders
-
-</p>
 Final note of the day on Builders. Object chaining can make usage pretty
 easy. We get use to returning \$this in each method. Sometimes though we
 want the Builder to return another Builder which can configure its
@@ -125,10 +129,18 @@ method for configuring the same option, where the "set/add" just uses
 default settings and the "with" method lets you dig in, but only if you
 want to.
 
-<p>
-    // using "add"$builder->addGoodYearTires();// using "with"$builder->withGoodYearTires() // returns TireBuilder        ->setFancyRims()      // call TireBuilder methods        ->setSnowTires();class CarBuilder {    public function withGoodYearTires() {        // keep reference to builder so we can get its "product"         // and add it to the Car we're building        $this->_tireBuilder = new TireBuilder();        return $this->_tireBuilder;    }}
+// using "add"$builder->addGoodYearTires();// using "with"$builder->withGoodYearTires() // returns TireBuilder
+        ->setFancyRims()
+      // call TireBuilder methods
+        ->setSnowTires();class CarBuilder {
+    public function withGoodYearTires() {
+        // keep reference to builder so we can get its "product"
+         // and add it to the Car we're building
+        $this->_tireBuilder = new TireBuilder();
+        return $this->_tireBuilder;
+    }
+}
 
-</p>
 Stay tuned for Part 4...
 
   [Part 1]: http://blog.bywires.com/2011/02/pci-dss-compliance-and-spaghetti-code.html

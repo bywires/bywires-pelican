@@ -6,12 +6,8 @@ Category: Programming
 The statement in question: ["Private has absolutely no useful role in
 open-source code."][]
 
-</p>
-
 There's already lots of drawn out discussion about this so I'll keep it
 short.
-
-</p>
 
 -   Lots of private methods are bad, but not because of OSS. Its a code
     smell that usually means too many responsibilities (thereby
@@ -35,16 +31,12 @@ short.
     methods. It can be done. It just requires discipline and technical
     expertise.
 
-</p>
-
 At the end of the day its almost a silly point. Public or private, when
 talking about these internal-use-only methods programmers should avoid
 mucking with them. What are you trying to get at anyways? If its
 something significant it should be extracted into a new class which is
 in turn made a dependency of the original.
 
-</p>
-
-  ["Private has absolutely no useful role in open-source code."]: http://twitter.com/mtabini/status/18867470296
+["Private has absolutely no useful role in open-source code."]: http://twitter.com/mtabini/status/18867470296
   [Single Responsibility Principle]: http://en.wikipedia.org/wiki/Single_responsibility_principle
   [Clean Code]: http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882

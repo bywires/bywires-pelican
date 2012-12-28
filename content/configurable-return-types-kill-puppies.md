@@ -8,18 +8,11 @@ Here's some code you could see using [PHP's Adodb][] library. The
 library isn't the point but its demonstrates a pattern I see a fair
 amount.
 
-</p>
-
-<p>
 ~~~~ {name="code"}
 $oldFetchMode = $conn->setFetchMode(ADODB_FETCH_ASSOC);$recordSet = $conn->execute("SELECT * FROM table");$objectThatDoesWork->work($recordSet);$conn->setFetchMode($oldFetchMode);
 ~~~~
 
-</p>
-
 To me this is a multi-fail.
-
-</p>
 
 1.  If an exception is thrown before the fetch mode is reset it doesn't
     get reset unless you catch it. That can add up to a lot of
@@ -40,26 +33,17 @@ To me this is a multi-fail.
     access that first row the wrong way rather than failing immediately.
     I'd prefer it to [fail fast (pdf)][].
 
-</p>
-
 At first glance it could look flexible and convinient. You don't need to
 set the fetch mode ever in theory. You can just use the default, and
 that's pretty simple right? I'd be happy to rip this method out and
 pretend it never existed, but it does and its scaring the kids.
 
-</p>
-
 Luckily, there is actually a easy enough solution to this problem. Take
 a look at this rewrite.
 
-</p>
-
-<p>
 ~~~~ {name="code"}
 $recordSetFactory = $conn->execute("SELECT * FROM table");$objectThatDoesWork->work($recordSetFactory->asAssoc());
 ~~~~
-
-</p>
 
 \$recordSetFactory has the underlying record set resource stored
 privately.
@@ -70,13 +54,9 @@ is returned as an associative array. It could have another that returns
 an iterator which returns row data with numeric indexes (asList()
 maybe). There are plenty of ways to access this data conveniently.
 
-</p>
-
 Best of all that configuration is explicitly requested every time. Its
 used and it gets thrown away when the object's lifecycle ends. Done and
 done.
 
-</p>
-
-  [PHP's Adodb]: http://phplens.com/lens/adodb/docs-adodb.htm
+[PHP's Adodb]: http://phplens.com/lens/adodb/docs-adodb.htm
   [fail fast (pdf)]: http://martinfowler.com/ieeeSoftware/failFast.pdf

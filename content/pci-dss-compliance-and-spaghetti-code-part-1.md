@@ -14,18 +14,12 @@ nothing to do with security." The project I'm working on has been
 audited, but the final paperwork is not in yet. Things look good, but
 pass or fail, there's still plenty to learn from the experience already.
 
-</p>
-
-#### Minimizing the PCI DSS burden
-
-</p>
+## Minimizing the PCI DSS burden
 
 My employer's web application has a fundraising module which needed to
 become PCI DSS compliant. There are many things we considered when
 deciding how to modify our fundraising module. Here are a few of the
 larger concerns:
-
-</p>
 
 -   Hardware which handles credit card numbers is subject to audit
     (these systems combined are called the Cardholder Data Environment,
@@ -37,16 +31,12 @@ larger concerns:
 -   Quality testing must be documented for all CDE code changes
 -   There are restrictions on who is permitted to deploy CDE code
 
-</p>
-
 As you can see, maintenance to a CDE has lots of extra overhead. It
 didn't make sense to add that to overhead anything other than our
 fundraising module so we decided to separate it from the rest of our
 application code as well as serving it from its own cluster of web
 servers. This solution also reduces the attack surface area of this
 sensitive part of the application.
-
-</p>
 
 We would obvious have to make some changes that would cost us this extra
 overhead but we realized we could keep that cost low by reducing the
@@ -60,11 +50,7 @@ live within our original application which the CDE code can
 communication with via a simple API. This sounds great, but how do we
 rip our application in two?
 
-</p>
-
-#### Plotting the course
-
-</p>
+## Plotting the course
 
 Segmenting our application this way had huge implications for our
 existing fundraising code. The fundraising code had feature after
@@ -76,13 +62,9 @@ This code was so complex that it was hard to get a good idea of what all
 of it did. Without structure or comments it was unreadable and there was
 no test coverage.
 
-</p>
-
 When I first approached this problem I looked at in a very linear way.
 This is roughly how I saw the workflow for a basic fundraising page with
 all valid data submitted and no credit card processor errors:
-
-</p>
 
 1.  User opens fundraising page on web server (not a CDE web server)
 2.  User submits form which posts data to CDE web server
@@ -101,27 +83,19 @@ all valid data submitted and no credit card processor errors:
     (each of which could be different depending on the workflow the user
     was executing)
 
-</p>
-
 All this code extraction was going to be a real pain. The validation and
 form building was tightly coupled using an old Pear library called
 [QuickForm][]. The various user workflows were tangled together and
 extremely overcomplicated. Making a few huge tears in the middle of the
 application seemed high-risk given our relatively short timeline.
 
-</p>
-
-#### A-ha!
-
-</p>
+## A-ha!
 
 I soon realized this wasn't necessary. I didn't need to do all this
 extraction. I didn't need to rip this thing apart with a few huge,
 dangerous tears. What I needed to do was encapsulate those end points
 which triggered the output of data to the user's browser, a user
 redirect, or charging a user's credit card.
-
-</p>
 
 These encapsulated end points form Command classes which can be
 serialized and returned to the CDE in an API response. These commands
@@ -131,8 +105,6 @@ charge you're doing. The CDE code doesn't need to know. The CDE code
 just know how to handle certain sensitive fields, perform a credit card
 transaction, and execute these generic commands. All other decision
 making is delegated to the web server API.
-
-</p>
 
 For our first iteration I created these command classes and took all
 that structureless top-down spaghetti code and tossed it into a single
@@ -146,13 +118,9 @@ refactoring methods described in one of my favorite programming books,
 <a hre="http://amzn.com/0131177052">Working Effectively with Legacy
 Code</a>. These changes produced something I could release immediately.
 
-</p>
-
 Continue to [Part 2][]!
 
-</p>
-
-  [Payment Card Industry Data Security Standard (PCI DSS)]: http://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard
+[Payment Card Industry Data Security Standard (PCI DSS)]: http://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard
   [Command Pattern]: http://en.wikipedia.org/wiki/Command_pattern
   [QuickForm]: http://pear.php.net/package/HTML_QuickForm
   [Part 2]: http://blog.bywires.com/2011/08/pci-dss-compliance-and-spaghetti-code.html
