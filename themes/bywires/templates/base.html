@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
         <meta charset="charset=UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
@@ -9,12 +10,11 @@
         <meta property="og:description" content="" />
         <meta property="og:image" content="" />
 
-
         {% assets filters="compass,cssmin,gzip", output="css/style.css", "sass/style.sass" %}
             <link rel="stylesheet" type="text/css" href="{{ SITE_URL }}/{{ ASSET_URL }}">
         {% endassets %}
-    </head>
 
+    </head>
     <body>
 
         <header id="branding" role="banner">
@@ -24,23 +24,22 @@
 
             <ul id="menu">
                 <li><a href="{{ SITEURL }}/">Home</a></li>
-                <li id="categories"><a href="{{ SITEURL }}/articles/categories/">Categories</a><ul><? bywires_category_list(); ?></ul></li>
+                <li id="categories"><a href="{{ SITEURL }}/articles/categories/">Categories</a></li>
                 <li><a href="{{ SITEURL }}/about/">About</a></li>
-		<li><a href="<? esc_url( bloginfo('rss_url') ); ?>" title="RSS feed">Subscribe</a></li>
+		<li><a href="{{ FEED_ALL_RSS }}" title="RSS feed">Subscribe</a></li>
             </ul>
 
-            <form method="get" id="search-form" action="/">
+            <form method="get" id="search-form" action="#todo">
                 <label for="s" class="assistive-text">Search</label>
                 <input type="text" class="field" name="s" id="s" placeholder="Search" />
                 <input type="submit" class="submit" name="submit" id="searchsubmit" value="Go" />
             </form>
-            
-            <? get_search_form(); ?>
 
         </nav><!-- /nav -->
 
         <section id="page" class="container">
-
+            {% block content %}
+            {% endblock %}
         </section><!-- #page -->
 
     </body>
