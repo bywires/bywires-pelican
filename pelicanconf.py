@@ -5,7 +5,7 @@ AUTHOR = u'Bob McKee'
 SITENAME = u'Bywires.com'
 SITEURL = ''
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'America/New_York'
 
 DEFAULT_LANG = u'en'
 
@@ -20,3 +20,8 @@ SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 5
+
+ARTICLE_URL = 'articles/{category}/{slug}/'
+ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'
+
+THEME = 'themes/bywires'
