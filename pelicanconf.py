@@ -13,7 +13,7 @@ DATE_FORMATS = {
 
 DEFAULT_LANG = u'en'
 
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 3
 
 ARTICLE_URL = 'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'
@@ -30,3 +30,5 @@ PLUGINS = ['pelican.plugins.assets']
 WEBASSETS = True
 
 THEME = 'themes/bywires'
+
+FEED_ALL_RSS = 'feeds/all.rss'
