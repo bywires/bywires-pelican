@@ -25,9 +25,23 @@ CATEGORY_SAVE_AS = 'articles/{slug}/index.html'
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
-PLUGINS = ['pelican.plugins.assets']
+PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap',]
 
 WEBASSETS = True
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
 
 THEME = 'themes/bywires'
 
