@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+<article>
+
+    <header class="entry-header">
+        <h1 class="entry-title"><a href="{{ SITEURL }}/{{ page.slug }}" title="Permalink" rel="bookmark">{{ page.title }}</a></h1>
+    </header><!-- .entry-header -->
+
+    <div class="entry-content">
+        {{ page.content }}
+    </div><!-- .entry-content -->
+
+</article>
+{% endblock %}

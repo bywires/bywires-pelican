@@ -23,6 +23,7 @@
 
   a
     color: $content-link-color
+    text-decoration: underline
 
   &:visited
     color: $content-link-visited-color
@@ -71,6 +72,7 @@ nav
         text-decoration: none
 
         &:hover
+          padding-bottom: 13px
           border-bottom: 2px solid #D61620
           color: lighten(desaturate($content-font-color, 90%), 40%)
 
@@ -86,16 +88,10 @@ nav
     .assistive-text
       display: none
 
+
 #page
-  max-width: 800px
-
-
-#branding
-  display: none
-
-
-#primary
   padding: 20px
+  max-width: 800px
 
   #content
     .breadcrumbs
@@ -114,12 +110,12 @@ nav
     h2
       @extend %bywires-header-2
 
-  #search
-    .page-header
-      @extend %bywires-header-1
+    &.category
+      .page-header
+        @extend %bywires-header-1
 
-    .entry-title
-      @extend %bywires-header-2
+      .entry-title
+        @extend %bywires-header-2
 
   a
     color: $content-link-color
@@ -139,6 +135,9 @@ nav
 
     p, ul, ol
       @extend %bywires-content-block
+
+    li ul
+      padding: 0
 
     em
       font-style: italic

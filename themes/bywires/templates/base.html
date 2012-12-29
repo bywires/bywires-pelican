@@ -24,22 +24,27 @@
 
             <ul id="menu">
                 <li><a href="{{ SITEURL }}/">Home</a></li>
-                <li id="categories"><a href="{{ SITEURL }}/articles/categories/">Categories</a></li>
+                <li><a href="{{ SITEURL }}/articles/programming/">Programming</a></li>
+                <li><a href="{{ SITEURL }}/articles/using-software/">Using Software</a></li>
                 <li><a href="{{ SITEURL }}/about/">About</a></li>
 		<li><a href="{{ FEED_ALL_RSS }}" title="RSS feed">Subscribe</a></li>
             </ul>
 
+{#
             <form method="get" id="search-form" action="#todo">
                 <label for="s" class="assistive-text">Search</label>
                 <input type="text" class="field" name="s" id="s" placeholder="Search" />
                 <input type="submit" class="submit" name="submit" id="searchsubmit" value="Go" />
             </form>
+#}
 
         </nav><!-- /nav -->
 
-        <section id="page" class="container">
-            {% block content %}
-            {% endblock %}
+        <section id="page">
+            <section id="content" role="main" class="{% block page_class %}{% endblock %}">
+                {% block content %}
+                {% endblock %}
+            </section>
         </section><!-- #page -->
 
     </body>

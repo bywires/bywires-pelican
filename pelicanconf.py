@@ -17,9 +17,16 @@ DEFAULT_PAGINATION = 5
 
 ARTICLE_URL = 'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'
+ARTICLE_EXCLUDES = ('pages',)
+
+CATEGORY_URL = 'articles/{slug}/'
+CATEGORY_SAVE_AS = 'articles/{slug}/index.html'
+
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
 PLUGINS = ['pelican.plugins.assets']
 
-THEME = 'themes/bywires'
-
 WEBASSETS = True
+
+THEME = 'themes/bywires'
