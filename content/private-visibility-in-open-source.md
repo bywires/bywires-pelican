@@ -1,7 +1,7 @@
 Title: Private visibility in open-source
 Date: 2010-07-20 21:43
 Author: Admin
-Category: Programming
+Category: programming
 
 The statement in question: ["Private has absolutely no useful role in
 open-source code."][]

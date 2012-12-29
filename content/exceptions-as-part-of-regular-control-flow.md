@@ -1,7 +1,7 @@
 Title: Exceptions as part of "regular" control flow
 Date: 2010-08-31 03:38
 Author: Admin
-Category: Programming
+Category: programming
 Tags: exceptions
 
 I've heard this rule a lot: "Never use exception for control flow." Its

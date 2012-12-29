@@ -1,7 +1,7 @@
 Title: PCI DSS compliance and spaghetti code, Part 3
 Date: 2011-08-09 13:15
 Author: Admin
-Category: Programming
+Category: programming
 Tags: builder pattern, factory patten, legacy code, patterns, pci dss
 
 (Be sure to read [Part 1](|filename|/pci-dss-compliance-and-spaghetti-code-part-1.md) and [Part 2](|filename|/pci-dss-compliance-and-spaghetti-code-part-2.md) first!)

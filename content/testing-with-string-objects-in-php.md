@@ -1,7 +1,7 @@
 Title: Testing with string objects in PHP
 Date: 2010-07-29 23:56
 Author: Admin
-Category: Programming
+Category: programming
 Tags: php, testing
 
 As shown in the last post there are benefits to instantiating the class

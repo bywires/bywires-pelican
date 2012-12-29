@@ -1,7 +1,7 @@
 Title: A quick dive into Darktable
 Date: 2011-10-08 17:37
 Author: Admin
-Category: Applications
+Category: applications
 Tags: darktable, editing, linux, photography, ubuntu
 
 *Full disclosure: I am not a professional photographer or graphic

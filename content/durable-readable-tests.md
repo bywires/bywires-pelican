@@ -1,7 +1,7 @@
 Title: Durable, readable tests
 Date: 2010-07-29 23:10
 Author: Admin
-Category: Programming
+Category: programming
 Tags: testing
 
 Anyone who has written tests is familiar with our friend the setUp()

@@ -1,7 +1,7 @@
 Title: If Programming is an Art
 Date: 2012-12-09 16:30
 Author: Admin
-Category: Programming
+Category: programming
 
 Some of our best and brightest programmers classify programming as an
 art ([Donald Knuth][], [Guido van Rossum, and Bjarne Stroustrup][] to

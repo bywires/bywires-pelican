@@ -1,7 +1,7 @@
 Title: Categorizing exceptions: Subtypes vs Error codes
 Date: 2010-08-25 03:10
 Author: Admin
-Category: Programming
+Category: programming
 Tags: anti-patterns, exceptions
 
 Today's problematic pattern: Catching a single, usually per-package,

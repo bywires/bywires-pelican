@@ -1,7 +1,7 @@
 Title: Faking PHP functions
 Date: 2010-07-22 21:28
 Author: Admin
-Category: Programming
+Category: programming
 Tags: legacy code, php, testing
 
 Usually when I want to fake some kind of functionality provided by PHP,
