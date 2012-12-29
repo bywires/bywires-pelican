@@ -19,67 +19,71 @@ problems is the inspiration for this post.
 Here's a dumbed-down version of some code I was writing for a MySQL
 class (Yes, I'm actually writing one of those... in 2010... really!):
 
-~~~~ {name="code"}
-class Mysql {
-    public function execute($query) {
-        $result = mysql_query($query);
-        if($result === false) {
-            if(mysql_errno() === self::LOST_CONNECTION) {
-                throw new MysqlLostConnectionException();
-            } else {
-                throw new MysqlException();
+<div class="code php" markdown="1">
+    <?class Mysql {
+        public function execute($query) {
+            $result = mysql_query($query);
+            if($result === false) {
+                if(mysql_errno() === self::LOST_CONNECTION) {
+                    throw new MysqlLostConnectionException();
+                } else {
+                    throw new MysqlException();
+                }
             }
         }
     }
-}
-~~~~
+</div>
 
 How do I get mysql\_errno() to return the code for a lost connection? I
 should write a class to wrap this MySQL functionality... oh wait... I
 am. I needed something much simpler. Enter "THE SIMPLEST CLASS
 EVER!!!"...
 
-~~~~ {name="code"}
-class PHP_Functions {
-    public function __call($phpFunction, $args) {
-        return call_user_func_array($phpFunction, $args);
+<div class="code php" markdown="1">
+    <?class PHP_Functions {
+        public function __call($phpFunction, $args) {
+            return call_user_func_array($phpFunction, $args);
+        }
     }
-}
-~~~~
+</div>
 
 Now we can rewrite the other code by taking the PHP\_Functions object in
 the constructor of our MySQL class and modify two other lines...
 
-~~~~ {name="code"}
-class Mysql {
-    public function execute($query) {
-        $result = $this->_phpFunctions->mysql_query($query);
-        if($result === false) {
-            if($this->_phpFunctions->mysql_errno() ===self::LOST_CONNECTION) {
-                throw new MysqlLostConnectionException();
-            } else {
-                throw new MysqlException();
+<div class="code php" markdown="1">
+    <?class Mysql {
+        public function execute($query) {
+            $result = $this->_phpFunctions->mysql_query($query);
+            if($result === false) {
+                if($this->_phpFunctions->mysql_errno() ===self::LOST_CONNECTION) {
+                    throw new MysqlLostConnectionException();
+                } else {
+                    throw new MysqlException();
+                }
             }
         }
     }
-}
-~~~~
+</div>
 
 In our tests its now easy to mimic these MySQL error conditions. We just
 have to mock our PHP\_Functions object.
 
-~~~~ {name="code"}
-/** * @expectedException MysqlLostConnectionException */public function testShouldThrowLostConnectionException() {
-    $phpFunctions = $this->getMock('PHP_Functions',array('mysql_query', 'mysql_errno'));
-    $phpFunctions->expects($this->any())
-        ->method('mysql_query')
-        ->will($this->returnValue(false));
-    $phpFunctions->expects($this->any())
-        ->method('mysql_errno')
-        ->will($this->returnValue(Mysql::LOST_CONNECTION));
-    $mysql = new Mysql($phpFunctions);
-    $mysql->execute('SELECT 1');}
-~~~~
+<div class="code php" markdown="1">
+    <?/**
+     * @expectedException MysqlLostConnectionException
+     */
+    public function testShouldThrowLostConnectionException() {
+        $phpFunctions = $this->getMock('PHP_Functions',array('mysql_query', 'mysql_errno'));
+        $phpFunctions->expects($this->any())
+            ->method('mysql_query')
+            ->will($this->returnValue(false));
+        $phpFunctions->expects($this->any())
+            ->method('mysql_errno')
+            ->will($this->returnValue(Mysql::LOST_CONNECTION));
+        $mysql = new Mysql($phpFunctions);
+        $mysql->execute('SELECT 1');
+    }
+</div>
 
 Generally speaking, if someone shows me a magic method like \_\_call() I
 find myself unable to reach their heart through their throat but I keep
@@ -99,31 +103,33 @@ Write a class like below. Then, for your tests, subclass this, override
 the methods to provide mock functionality, then run the test on the
 subclass you created.
 
-~~~~ {name="code"}
-class Mysql {
-    public function execute($query) {
-        $result = $this->_mysql_query($query);
-        if($result === false) {
-            if($this->_mysql_errno() === self::LOST_CONNECTION) {
-                throw new MysqlLostConnectionException();
-            } else {
-                throw new MysqlException();
+<div class="code php" markdown="1">
+    <?class Mysql {
+        public function execute($query) {
+            $result = $this->_mysql_query($query);
+            if($result === false) {
+                if($this->_mysql_errno() === self::LOST_CONNECTION) {
+                    throw new MysqlLostConnectionException();
+                } else {
+                    throw new MysqlException();
+                }
             }
         }
+
+        protected function _mysql_query($query) {
+            return mysql_query($query);
+        }
+
+        protected function _mysql_errno() {
+            return mysql_errno();
+        }
     }
-    protected function _mysql_query($query) {
-        return mysql_query($query);
-    }
-    protected function _mysql_errno() {
-        return mysql_errno();
-    }
-}
-~~~~
+</div>
 
 I had several cases where I needed to mock consecutive calls so it just
 seemed like [PHPUnit][] was ready to go with that, so I opted for that
 route. Either approach would work well.
 
 [Decorator]: http://en.wikipedia.org/wiki/Decorator_pattern
-  [See Working Effectively with Legacy Code. Excellent book.]: http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052
-  [PHPUnit]: http://www.phpunit.de/
+[See Working Effectively with Legacy Code. Excellent book.]: http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052
+[PHPUnit]: http://www.phpunit.de/

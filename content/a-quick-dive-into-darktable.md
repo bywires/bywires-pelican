@@ -39,11 +39,7 @@ Lightroom you'll find that some shortcuts are the same but a lot aren't.
 If you want to see what the shortcut keys are and even change then to
 whatever you like here's how:
 
-<div style="clear: both; text-align: center;">
-
-[![How to view and modify shortcut keys in Darktable][]][]
-
-</div>
+[![How to view and modify shortcut keys in Darktable](http://4.bp.blogspot.com/-If6bYn4vKlc/TpB_DaWouZI/AAAAAAAAAD0/zQay5K5MpzM/s400/shortcuts.png)](http://4.bp.blogspot.com/-If6bYn4vKlc/TpB_DaWouZI/AAAAAAAAAD0/zQay5K5MpzM/s1600/shortcuts.png)
 
 I also work on a laptop with a touchpad. You have a lot of zooming
 control with your scroll wheel, but I don't have one. Without a scroll
@@ -65,11 +61,7 @@ Clicking the icon twice will turn the icons background red. This means
 the plugin has also been added to the "favorite" category in the right
 panel. Click a third time to remove the plugin from the right panel.
 
-<div style="clear: both; text-align: center;">
-
-[![How to activate plugins in Darktable][]][]
-
-</div>
+[![How to activate plugins in Darktable](http://1.bp.blogspot.com/-FAiPQFCo7eg/TpCFbd4tCQI/AAAAAAAAAD8/nW8EAs_JCXE/s400/plugins.png)](http://1.bp.blogspot.com/-FAiPQFCo7eg/TpCFbd4tCQI/AAAAAAAAAD8/nW8EAs_JCXE/s1600/plugins.png)
 
 Generally I use a few plugins and I use them a lot. My preference was to
 only add those plugins to the panel and make them all my favorites. This
@@ -85,10 +77,7 @@ Lightoom has, but its still damn good and its free. I am extremely
 excited to see how this application will evolve over the next few years.
 
 [Adobe Lightroom]: http://www.adobe.com/products/photoshoplightroom/
-  [Rawstudio]: http://rawstudio.org/
-  [RawTherapee]: http://rawtherapee.com/
-  [Darktable]: http://darktable.sourceforge.net/
-  [How to view and modify shortcut keys in Darktable]: http://4.bp.blogspot.com/-If6bYn4vKlc/TpB_DaWouZI/AAAAAAAAAD0/zQay5K5MpzM/s400/shortcuts.png
-  [![How to view and modify shortcut keys in Darktable][]]: http://4.bp.blogspot.com/-If6bYn4vKlc/TpB_DaWouZI/AAAAAAAAAD0/zQay5K5MpzM/s1600/shortcuts.png
-  [How to activate plugins in Darktable]: http://1.bp.blogspot.com/-FAiPQFCo7eg/TpCFbd4tCQI/AAAAAAAAAD8/nW8EAs_JCXE/s400/plugins.png
-  [![How to activate plugins in Darktable][]]: http://1.bp.blogspot.com/-FAiPQFCo7eg/TpCFbd4tCQI/AAAAAAAAAD8/nW8EAs_JCXE/s1600/plugins.png
+[Rawstudio]: http://rawstudio.org/
+[RawTherapee]: http://rawtherapee.com/
+[Darktable]: http://darktable.sourceforge.net/
+

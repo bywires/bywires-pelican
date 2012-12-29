@@ -7,19 +7,19 @@ Tags: anti-patterns, code smell
 I mentioned this in my last post so I figured I'd add some examples to
 clarify. Consider the following code:
 
-~~~~ {name="code"}
-class Cache {
-    public function set($key, $data) {
-        if($this->_useMemcache()) {
-            $this->_setInMemcache($key, $data);
-        } elseif($this->_useFilesystem()) {
-            $this->_setInFilesystem($key, $data);
-        } else {
-            $this->_setInMemory($key, $data);
+<div class="code php" markdown="1">
+    <?class Cache {
+        public function set($key, $data) {
+            if($this->_useMemcache()) {
+                $this->_setInMemcache($key, $data);
+            } elseif($this->_useFilesystem()) {
+                $this->_setInFilesystem($key, $data);
+            } else {
+                $this->_setInMemory($key, $data);
+            }
         }
     }
-}
-~~~~
+</div>
 
 Its part of a class that would be used for caching data. If you had a
 view of all the methods on this class there would be groups of similar
@@ -93,5 +93,5 @@ reader/writer would be simply a matter of writing a new class with the
 interface needed to work with my translation importer/exporter class.
 
 [Chain of Responsibility patttern]: http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern
-  [Single Responsibility Principle]: http://en.wikipedia.org/wiki/Single_responsibility_principle
-  [PHPExcel]: http://phpexcel.codeplex.com/
+[Single Responsibility Principle]: http://en.wikipedia.org/wiki/Single_responsibility_principle
+[PHPExcel]: http://phpexcel.codeplex.com/

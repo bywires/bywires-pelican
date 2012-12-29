@@ -80,13 +80,13 @@ for now its what I'm working on. When/If I find a good solution I will
 post it.
 
 [Synthesia]: http://synthesiagame.com/
-  [Linthesia]: http://sourceforge.net/projects/linthesia/
-  [Synthesia's wiki noted it was old and missing features]: http://www.synthesiagame.com/wiki/Linux_version
-  [Wine]: http://www.winehq.org/
-  [PlayOnLinux]: http://www.playonlinux.com/
-  [added support for Synthesia two weeks ago]: http://www.playonlinux.com/en/commentaires-925.html
-  [installation instructions]: http://www.playonlinux.com/en/download.html
-  [these instructions]: http://www.playonlinux.com/en/manual.html
-  [1]: http://www.synthesiagame.com/wiki/Resources_Manual#Linux_version
-  [Timidity]: http://timidity.sourceforge.net/
-  [QMidiRoute]: http://alsamodular.sourceforge.net/
+[Linthesia]: http://sourceforge.net/projects/linthesia/
+[Synthesia's wiki noted it was old and missing features]: http://www.synthesiagame.com/wiki/Linux_version
+[Wine]: http://www.winehq.org/
+[PlayOnLinux]: http://www.playonlinux.com/
+[added support for Synthesia two weeks ago]: http://www.playonlinux.com/en/commentaires-925.html
+[installation instructions]: http://www.playonlinux.com/en/download.html
+[these instructions]: http://www.playonlinux.com/en/manual.html
+[1]: http://www.synthesiagame.com/wiki/Resources_Manual#Linux_version
+[Timidity]: http://timidity.sourceforge.net/
+[QMidiRoute]: http://alsamodular.sourceforge.net/

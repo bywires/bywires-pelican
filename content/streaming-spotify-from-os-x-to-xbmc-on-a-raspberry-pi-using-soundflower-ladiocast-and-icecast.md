@@ -8,7 +8,7 @@ My Goal here was pretty simple: Play [Spotify][] on my [Raspberry Pi][]
 running [XBMC][]. The easiest and most usable way to do this would be to
 install something like the [Spotimc][] plugin in XBMC itself. Spotimc,
 like all 3rd party Spotify libraries at the moment, seems to require a
-Spotify Premium account. If you, like me, aren't ready to spend \$10 a
+Spotify Premium account. If you, like me, aren't ready to spend $10 a
 month for the service then read on.
 
 The next option I considered was streaming from my Spotify desktop
@@ -17,8 +17,8 @@ without any extra plugins installed so I rolled with that. I just needed
 to create a stream from my laptop running OS X which the PLS file would
 point to.
 
-For \$59 you can do this in a couple of seconds using [Nicecast][]. I
-didn't want to spend \$59 so I continued on my quest for *free*.
+For $59 you can do this in a couple of seconds using [Nicecast][]. I
+didn't want to spend $59 so I continued on my quest for *free*.
 
 Here are some brief descriptions of the software you're going to use:
 
@@ -34,9 +34,10 @@ LadioCast
 :   "LadioCast is a software running on Mac OS X to stream digital audio
     such as Internet radio program." It functions as an audio source for
     your Icecast server.
-:
 
 ## Streaming audio from OS X
+
+<!--- #todo -->
 
 1.  Install [Soundflower][]
 2.  System Preferences \> Sound \> Output \> Soundflower (2ch)
@@ -55,14 +56,11 @@ LadioCast
             -   Mount \> /stream
             -   User \> source
             -   Password \> hackme
-
         -   Encoding
             -   Format \> Ogg Vorbis
             -   Bit Rate Mode \> Variable
             -   Quality Level \> 2
-
         -   Click "connect"
-
 8.  Play some music from Spotify (continuously loop it for testing
     purposes)
 
@@ -70,9 +68,10 @@ LadioCast
 
 Create PLS file in a directory you can access from XBMC.
 
-~~~~ {name="code"}
-[playlist]File1=http://YOUR_MACS_IP:8000/streamTitle1=My StreamLength1=-1Version=2
-~~~~
+    File1=http://YOUR_MACS_IP:8000/stream
+    Title1=My Stream
+    Length1=-1
+    Version=2
 
 Then from XBMC \> Music \> Files, browse to the PLS file and "play" it.
 

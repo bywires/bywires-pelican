@@ -10,12 +10,9 @@ fine art like painting or sculpture, or perhaps solving problems despite
 walking blindly through the realm of the unknown. Donald Knuth says in
 [Computer Programming as an Art][Donald Knuth]:
 
-> 
 > Science is knowledge which we understand so well that we can teach it
 > to a computer; and if we don't fully understand something, it is an
 > art to deal with it.
->
->
 
 Interesting... intriguing... but useful? When we hear this premise,
 *programming is an art*, what argument is it supporting? Or is it simply
@@ -92,5 +89,5 @@ more of a practical approach to coding would be to:
 -   **Read about how other people solve problems.**
 
 [Donald Knuth]: http://www.paulgraham.com/knuth.html
-  [Guido van Rossum, and Bjarne Stroustrup]: http://onlamp.com/pub/a/onlamp/2005/06/30/artofprog.html
-  [Jackass 3D]: http://www.youtube.com/watch?v=fKwjU_pSSW4
+[Guido van Rossum, and Bjarne Stroustrup]: http://onlamp.com/pub/a/onlamp/2005/06/30/artofprog.html
+[Jackass 3D]: http://www.youtube.com/watch?v=fKwjU_pSSW4

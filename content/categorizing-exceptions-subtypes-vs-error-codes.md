@@ -12,29 +12,29 @@ other way. Its an oddly unconscious decision.
 
 Consider the following code:
 
-~~~~ {name="code"}
-try {
-    $http->get('/~bob');
-    // do something} catch (Http_Exception $e) {
-    if($e->getCode() == 404) {
-        // do something else
+<div class="code php" markdown="1">
+    <?try {
+        $http->get('/~bob');
+        // do something} catch (Http_Exception $e) {
+        if($e->getCode() == 404) {
+            // do something else
+        }
     }
-}
-~~~~
+</div>
 
 When you use things like well-established HTTP status codes this almost
 seems reasonable. It gets a little weirder when you're talking about
 some internal code defined in some package no one knows anything about.
 Take this bank account withdrawal example:
 
-~~~~ {name="code"}
-try {
-    $customerBankAccount->withdraw(100);} catch (CustomerBankAccount_Exception $e) {
-    if($e->getCode() == 123) {
-        // 123 means they overcharged their account, SHIT!
+<div class="code php" markdown="1">
+    <?try {
+        $customerBankAccount->withdraw(100);} catch (CustomerBankAccount_Exception $e) {
+        if($e->getCode() == 123) {
+            // 123 means they overcharged their account, SHIT!
+        }
     }
-}
-~~~~
+</div>
 
 My problem with this is that we're using two tools for a single purpose.
 What is the purpose of an Exception subtype, Http\_Exception or
@@ -55,9 +55,9 @@ Better example time - GO!
 
 This is more descriptive...
 
-~~~~ {name="code"}
-} catch (Http_Exception_NotFound $e) {
-~~~~
+<div class="code php" markdown="1">
+    <?} catch (Http_Exception_NotFound $e) {
+</div>
 
 Sure, we all know what a 404 is anyway, but what about a 402 or a 203 or
 a 912 (Glenn Beck Logic Not Found)? If you're writing this code you're
@@ -67,9 +67,9 @@ if was just looking at some plain English exception class names.
 
 If you want to catch all those 4xx-class exceptions why not...
 
-~~~~ {name="code"}
-} catch (Http_Exception_ClientError $e) {
-~~~~
+<div class="code php" markdown="1">
+    <?} catch (Http_Exception_ClientError $e) {
+</div>
 
 (The official category of 4xx errors is "Client Error")
 
@@ -93,56 +93,34 @@ notion.
 
 [Thoroughly enjoy this proposal.][]
 
-> 
->
 > Currently, exceptions can only be handled on a per-class basis, or
 > possibly by string comparison against the message.
->
-> 
 >
 > Instead, we propose that exception codes be used throughout the
 > framework, using a 4-byte hexadecimal format.
 >
-> 
->
 > This has at least four obvious benefits.
->
-> 
 >
 > First, it's now possible to distinguish exceptions based on the type
 > of error instead of only by class. This allows users to handle them
 > intelligently.
 >
-> 
->
 > Second, codes let us do some interesting things with exception
 > handling. Users would now be able to call a method such as:
 >
-> 
->
-> 
-> ~~~~ {name="code"}
-> if ($e->stringTooShort()) {
-     ... } if ($e->stringTooShort()) { ... }
-> ~~~~
->
-> 
+>     if ($e->stringTooShort()) {
+          ... } if ($e->stringTooShort()) { ... }
 >
 > thereby making exception special-casing easy.
->
-> 
 >
 > Third, this gives us the ability to translate error messages using
 > Zend\_Translate (loaded only when an exception occurs) and using
 > separate translation files (for example, .mo format). Not all
 > developers speak English; those that do generally prefer to see
 > exception messages in their native language.
->
 > 
 > <cite>[http://framework.zend.com/wiki/pages/viewpage.action?pageId=22134][Thoroughly
 > enjoy this proposal.]</cite>
->
->
 
 Who cares about point 4, I'm already gagging. Even the language irks me
 a bit. Just being able to do something doesn't make it "beneficial". A
@@ -173,14 +151,9 @@ user asked why PHP's Exception class took an error code in its
 constructor at all (a very good question). One of the proposal's authors
 answered:
 
-> 
->
 > The error code parameter is intended to be used exactly how we're
 > using it: differentiating exceptions within exception "namespaces"
 > (classes).
->
-> 
->
 
 Sigh.
 

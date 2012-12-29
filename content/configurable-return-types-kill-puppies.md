@@ -8,9 +8,12 @@ Here's some code you could see using [PHP's Adodb][] library. The
 library isn't the point but its demonstrates a pattern I see a fair
 amount.
 
-~~~~ {name="code"}
-$oldFetchMode = $conn->setFetchMode(ADODB_FETCH_ASSOC);$recordSet = $conn->execute("SELECT * FROM table");$objectThatDoesWork->work($recordSet);$conn->setFetchMode($oldFetchMode);
-~~~~
+<div class="code php" markdown="1">
+    <?$oldFetchMode = $conn->setFetchMode(ADODB_FETCH_ASSOC);
+    $recordSet = $conn->execute("SELECT * FROM table");
+    $objectThatDoesWork->work($recordSet);
+    $conn->setFetchMode($oldFetchMode);
+</div>
 
 To me this is a multi-fail.
 
@@ -28,7 +31,7 @@ To me this is a multi-fail.
     run. It sends you in the wrong direction every time.
 3.  Setting the fetch mode every time with this long method and verbose
     constant adds a bunch of boilerplate.
-4.  \$objectThatDoesWork-\>work() should also have its first parameter
+4.  $objectThatDoesWork-\>work() should also have its first parameter
     be typed or you'll only know something went wrong when it tries to
     access that first row the wrong way rather than failing immediately.
     I'd prefer it to [fail fast (pdf)][].
@@ -41,14 +44,15 @@ pretend it never existed, but it does and its scaring the kids.
 Luckily, there is actually a easy enough solution to this problem. Take
 a look at this rewrite.
 
-~~~~ {name="code"}
-$recordSetFactory = $conn->execute("SELECT * FROM table");$objectThatDoesWork->work($recordSetFactory->asAssoc());
-~~~~
+<div class="code php" markdown="1">
+    <?$recordSetFactory = $conn->execute("SELECT * FROM table");
+    $objectThatDoesWork->work($recordSetFactory->asAssoc());
+</div>
 
-\$recordSetFactory has the underlying record set resource stored
+$recordSetFactory has the underlying record set resource stored
 privately.
 
-\$recordSetFactory object might have different ways to access the data
+$recordSetFactory object might have different ways to access the data
 such as asAssoc(), which would return an iterator where the current row
 is returned as an associative array. It could have another that returns
 an iterator which returns row data with numeric indexes (asList()
@@ -59,4 +63,4 @@ used and it gets thrown away when the object's lifecycle ends. Done and
 done.
 
 [PHP's Adodb]: http://phplens.com/lens/adodb/docs-adodb.htm
-  [fail fast (pdf)]: http://martinfowler.com/ieeeSoftware/failFast.pdf
+[fail fast (pdf)]: http://martinfowler.com/ieeeSoftware/failFast.pdf

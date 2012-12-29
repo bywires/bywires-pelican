@@ -11,16 +11,16 @@ like strings? Unlike in many other modern languages, strings are not
 objects in PHP. They are not passed by reference. The good news is while
 strings are not objects, objects can be stings.
 
-~~~~ {name="code"}
-class String {
-    public function set($str) {
-        $this->_str = $str;
+<div class="code php" markdown="1">
+    <?class String {
+        public function set($str) {
+            $this->_str = $str;
+        }
+        public function __toString() {
+            return $this->_str;
+        }
     }
-    public function __toString() {
-        return $this->_str;
-    }
-}
-~~~~
+</div>
 
 This class can be used as a string. It can work in PHP's string
 functions and any other place a string is desired. So pass this to the

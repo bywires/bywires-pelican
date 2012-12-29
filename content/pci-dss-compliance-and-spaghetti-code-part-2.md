@@ -4,7 +4,7 @@ Author: Admin
 Category: Programming
 Tags: composite pattern, gateway pattern, legacy code, patterns, pci dss
 
-(Be sure to read [Part 1][] first!)
+(Be sure to read [Part 1](|filename|/pci-dss-compliance-and-spaghetti-code-part-1.md) first!)
 
 The first iteration of my [Command objects][] could continue to use our
 existing [payment gateway][] code, but this would not be acceptable by
@@ -51,14 +51,12 @@ causes an error instantly - do not pass GO, do not collect \$200. This
 kind of defensiveness seems pretty important for a system as critical as
 this one (one that receives money).
 
-Continue to [Part 3][]!
+Continue to [Part 3](|filename|/pci-dss-compliance-and-spaghetti-code-part-3.md)!
 
-[Part 1]: http://blog.bywires.com/2011/02/pci-dss-compliance-and-spaghetti-code.html
-  [Command objects]: http://en.wikipedia.org/wiki/Command_pattern
-  [payment gateway]: http://en.wikipedia.org/wiki/Payment_gateway
-  [global state]: http://misko.hevery.com/code-reviewers-guide/flaw-brittle-global-state-singletons/
-  [such as PayPal's]: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_NVPAPIBasics
-  [such as Authorize.net's]: http://www.authorize.net/support/ARB_guide.pdf
-  [Composite pattern]: http://en.wikipedia.org/wiki/Composite_pattern
-  [Visitor pattern]: http://en.wikipedia.org/wiki/Visitor_pattern
-  [Part 3]: http://blog.bywires.com/2011/08/pci-dss-compliance-and-spaghetti-code_4387.html
+[Command objects]: http://en.wikipedia.org/wiki/Command_pattern
+[payment gateway]: http://en.wikipedia.org/wiki/Payment_gateway
+[global state]: http://misko.hevery.com/code-reviewers-guide/flaw-brittle-global-state-singletons/
+[such as PayPal's]: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_NVPAPIBasics
+[such as Authorize.net's]: http://www.authorize.net/support/ARB_guide.pdf
+[Composite pattern]: http://en.wikipedia.org/wiki/Composite_pattern
+[Visitor pattern]: http://en.wikipedia.org/wiki/Visitor_pattern

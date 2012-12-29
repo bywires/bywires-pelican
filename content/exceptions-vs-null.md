@@ -59,7 +59,7 @@ times were we want to lookup URLs:
     and serve it (absence is exceptional)
 
 Both of these scenarios could call upon the same method -
-\$blogPostGateway-\>getPostByUrl(\$url). The exceptionality of this
+$blogPostGateway-\>getPostByUrl($url). The exceptionality of this
 scenario depends on the context within the application, yet, as a
 business class, this gateway knows (or should know) nothing about the
 application which it lives in.
@@ -74,12 +74,12 @@ tool to say "I failed!" - an exception.
 
 ## Null = repetition
 
-Suppose \$blogPostGateway-\>getPostByUrl(\$url) does return Null. Now
+Suppose $blogPostGateway-\>getPostByUrl($url) does return Null. Now
 the caller is left to interpret these magic values. Should callers be
 left to duplicate those conditionals everywhere? That's not good design.
 
 Preferably the "absence scenario" here would be handled on the blog post
-gateway in a method like \$blogPostGateway-\>blogPostExists(\$url) which
+gateway in a method like $blogPostGateway-\>blogPostExists($url) which
 returns a boolean. No Null. No new exceptions necessary. This decision
 not to use Null also forces the developer to make the right choice and
 write these extra methods which check for existence.

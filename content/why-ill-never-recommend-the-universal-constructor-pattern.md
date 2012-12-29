@@ -17,12 +17,12 @@ The pattern is simple. Constructors take only one parameter ever. That
 one parameter contains a hash of option/setting pairs (configuration).
 Here's an example of where you might see something like this...
 
-~~~~ {name="code"}
-$userImporter = new UserImporter(array(
-    'enable_deduping' => true,
-    'email_admin_on_failure' => true,
-    'import_batch_size' => 1000));
-~~~~
+<div class="code php" markdown="1">
+    <?$userImporter = new UserImporter(array(
+        'enable_deduping' => true,
+        'email_admin_on_failure' => true,
+        'import_batch_size' => 1000));
+</div>
 
 Code that uses this pattern is notorious for breaking the [Single
 Responsibility Principle][]. Breaking this principle leads to tightly
@@ -39,16 +39,18 @@ Jesus to the cross.
 This approach appears to solve one problem: it gets rid of that long
 optional parameter list which leads to code like so...
 
-~~~~ {name="code"}
-class UserImport {
-    public function __construct($enableDeduping = true, $enableEmailOnFailure = false, $batchSize = 1000) {
-        // ...
+<div class="code php" markdown="1">
+    <?class UserImport {
+        public function __construct($enableDeduping = true, $enableEmailOnFailure = false, $batchSize = 1000) {
+            // ...
+        }
     }
-}$userImport = new UserImport(
-    true,  // default
-    false, // default
-    2000   // custom setting!);
-~~~~
+
+    $userImport = new UserImport(
+                      true,  // default
+                      false, // default
+                      2000   // custom setting!);
+</div>
 
 You're repeating defaults all over the place to get to that last
 optional value. You can never remember which parameter it is without
@@ -61,18 +63,20 @@ together because there are too many responsibilities that correspond to.
 Here a slightly modified example that might be a scenario where you'd
 actually use setters for your optional parameters.
 
-~~~~ {name="code"}
-class UserImport {
-    public function __construct(Framework_DatabaseConnection $databaseConnection) {
-        $this->_databaseConnection = $databaseConnection;
-                // implements logger interface but does not write logs or actually do anything else.  this is my default logger value.
-        $this->_logger = new Framework_Logger_Null();
-     }
+<div class="code php" markdown="1">
+    <?class UserImport {
+        public function __construct(Framework_DatabaseConnection $databaseConnection) {
+            $this->_databaseConnection = $databaseConnection;
+            // implements logger interface but does not write logs or actually do anything 
+            // else.  this is my default logger value.
+            $this->_logger = new Framework_Logger_Null();
+        }
+
         public function setLogger(Framework_Logger $logger) {
-        $this->_logger = $logger;
+            $this->_logger = $logger;
+        }
     }
-}
-~~~~
+</div>
 
 In this case rather than having an optional logger in the constructor
 with default value I just set the object's logger to the default, a
@@ -117,8 +121,8 @@ those implementations. There are better ways to handle dependency
 management but thats another post for another day.
 
 [PlanetPHP]: http://www.planet-php.net/
-  ["universal constructor" pattern]: http://solarphp.com/manual/appendix-standards.constructor
-  [Solar]: http://solarphp.com/
-  [Single Responsibility Principle]: http://en.wikipedia.org/wiki/Single_responsibility_principle
-  [null object]: http://en.wikipedia.org/wiki/Null_Object_pattern
-  [dependency injection]: http://en.wikipedia.org/wiki/Dependency_injection
+["universal constructor" pattern]: http://solarphp.com/manual/appendix-standards.constructor
+[Solar]: http://solarphp.com/
+[Single Responsibility Principle]: http://en.wikipedia.org/wiki/Single_responsibility_principle
+[null object]: http://en.wikipedia.org/wiki/Null_Object_pattern
+[dependency injection]: http://en.wikipedia.org/wiki/Dependency_injection
