@@ -37,8 +37,6 @@ LadioCast
 
 ## Streaming audio from OS X
 
-<!--- #todo -->
-
 1.  Install [Soundflower][]
 2.  System Preferences \> Sound \> Output \> Soundflower (2ch)
 3.  Install [Icecast][] using [Homebrew][]: *brew install icecast*
@@ -68,6 +66,7 @@ LadioCast
 
 Create PLS file in a directory you can access from XBMC.
 
+    [playlist]
     File1=http://YOUR_MACS_IP:8000/stream
     Title1=My Stream
     Length1=-1
