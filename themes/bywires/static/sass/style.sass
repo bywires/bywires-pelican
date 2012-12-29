@@ -1,40 +1,8 @@
 @import "reset"
 @import "variables"
+@import "mixins"
+@import "classes"
 @import "pygments"
-
-%bywires-header-1
-  margin-bottom: 10px
-  font-family: $content-header-font
-  color: $content-header-font-color
-  font-size: 32px
-  font-weight: bold
-  line-height: 36px
-  letter-spacing: 0.1em
-          
-  a
-    color: inherit
-    text-decoration: none
-        
-%bywires-header-2
-  font-size: 20px
-  font-weight: bold
-  color: $content-header-font-color
-  margin: 15px 0
-
-  a
-    color: $content-link-color
-    text-decoration: underline
-
-  &:visited
-    color: $content-link-visited-color
-
-%bywires-meta
-  font-size: 14px
-
-%bywires-content-block
-  display: block
-  padding: 10px 0
-
 
 body
   font-family: $content-font
@@ -49,45 +17,73 @@ input[type="text"]
   padding: 5px
 
 
-nav
-  margin: 20px
-  border-bottom: 2px solid #EEE
+// mobile, tablet
+@media (max-width: 768px)
+  nav
+    padding: 20px
+    border-bottom: 2px solid #EEE
 
-  &>ul
-    display: inline-block
+    ul
+      display: block
+      @include clearfix
 
-    &>li
+    li
+      display: block
+      width: 50%
+      float: left
+
+    a
+      display: inline-block
+      white-space: nowrap
+      color: $content-link-color
+      font-family: $nav-font
+      letter-spacing: 0.12em
+      padding: 10px 0
+
+      &:visited
+        color: $content-link-visited-color
+
+
+// normal
+@media (min-width: 768px)
+  nav
+    margin: 20px
+    border-bottom: 2px solid #EEE
+
+    &>ul
       display: inline-block
 
-      &>ul
-        display: none
-
-      a
+      &>li
         display: inline-block
-        padding: 30px 15px 15px 15px
-        margin-bottom: -2px
-        font-family: $nav-font
-        color: #BBB
-        letter-spacing: 0.12em
-        text-decoration: none
 
-        &:hover
-          padding-bottom: 13px
-          border-bottom: 2px solid #D61620
-          color: lighten(desaturate($content-font-color, 90%), 40%)
+        &>ul
+          display: none
 
-  #search-form
-    display: inline-block
-    padding: 0 15px 7px 15px
-    margin-bottom: -2px
-    border-bottom: 2px solid transparent
+        a
+          display: inline-block
+          padding: 30px 15px 15px 15px
+          margin-bottom: -2px
+          font-family: $nav-font
+          color: #BBB
+          letter-spacing: 0.12em
+          text-decoration: none
 
-    &:focus, &:hover
-      border-bottom: 2px solid #D61620
+          &:hover
+            padding-bottom: 13px
+            border-bottom: 2px solid #D61620
+            color: lighten(desaturate($content-font-color, 90%), 40%)
 
-    .assistive-text
-      display: none
+    #search-form
+      display: inline-block
+      padding: 0 15px 7px 15px
+      margin-bottom: -2px
+      border-bottom: 2px solid transparent
 
+      &:focus, &:hover
+        border-bottom: 2px solid #D61620
+
+      .assistive-text
+        display: none
 
 #page
   padding: 20px
@@ -125,9 +121,7 @@ nav
 
   .entry-content
     blockquote
-      margin: 15px 20px
-      border-left: 4px solid $content-accent-color
-      padding-left: 16px
+      @extend %bywires-indented-content-block
 
     p, li, dt, dd
       font-size: 16px
@@ -155,6 +149,11 @@ nav
     dd
       padding-left: 15px
       margin: 10px 0
+
+    img
+      @media (max-width: 768px)
+        max-width: 100%
+        height: auto
 
   .entry-meta
     border-top: 1px solid #EEE
