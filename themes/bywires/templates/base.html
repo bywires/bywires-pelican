@@ -10,7 +10,7 @@
         <meta property="og:description" content="" />
         <meta property="og:image" content="" />
 
-        {% assets filters="compass,cssmin,gzip", output="css/style.css", "sass/style.sass" %}
+        {% assets filters="compass,cssmin", output="css/style.css", "sass/style.sass" %}
             <link rel="stylesheet" type="text/css" href="{{ SITE_URL }}/{{ ASSET_URL }}" />
         {% endassets %}
 
