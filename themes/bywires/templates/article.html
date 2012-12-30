@@ -15,14 +15,13 @@
         <div class="entry-date">
             Posted on <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
         </div><!-- .entry-date -->
-
-        <div class="comments-link"><a href="{{ SITEURL }}/{{ article.url }}#comments">Leave a reply</a></div>
     </footer><!-- #entry-meta -->
 
 </article>
 
 {% if DISQUS_SITENAME %}
 <div class="comments">
+    <a name="comments"></a>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_identifier = "{{ article.slug }}";
