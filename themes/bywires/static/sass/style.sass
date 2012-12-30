@@ -17,9 +17,13 @@ input[type="text"]
   padding: 5px
 
 
+#container
+  max-width: 800px
+ 
+
 // mobile, tablet
 @media (max-width: 768px)
-  nav
+  #main-nav
     padding: 20px
     border-bottom: 2px solid #EEE
 
@@ -46,7 +50,7 @@ input[type="text"]
 
 // normal
 @media (min-width: 768px)
-  nav
+  #main-nav
     margin: 20px
     border-bottom: 2px solid #EEE
 
@@ -87,7 +91,6 @@ input[type="text"]
 
 #page
   padding: 20px
-  max-width: 800px
 
   #content
     .breadcrumbs
@@ -159,12 +162,13 @@ input[type="text"]
     border-top: 1px solid #EEE
     border-bottom: 2px solid #EEE
     
-    padding: 15px 0
-    margin: 20px 0 40px 0
+    padding: 10px 0 5px 0
+    margin: 10px 0 20px 0
 
     .share-links, .prev-next-links
       li
         display: inline
 
     .entry-date, .share-links, .prev-next-links, .comments-link
-      @extend %bywires-content-block
+      display: block
+      padding-bottom: 5px

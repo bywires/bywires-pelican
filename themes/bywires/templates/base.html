@@ -21,37 +21,38 @@
 
     </head>
     <body>
+        <div id="container">
+    {#
+            <header id="branding" role="banner">
+            </header><!-- #branding -->
+    #}
+            <nav id="main-nav">
 
-{#
-        <header id="branding" role="banner">
-        </header><!-- #branding -->
-#}
-        <nav>
+                <ul id="menu">
+                    <li><a href="{{ SITEURL }}/">Home</a></li>
+                    <li><a href="{{ SITEURL }}/articles/programming/">Programming</a></li>
+                    <li><a href="{{ SITEURL }}/articles/using-software/">Using Software</a></li>
+                    <li><a href="{{ SITEURL }}/pages/about/">About</a></li>
+                    <li><a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" title="RSS feed">Subscribe</a></li>
+                </ul>
 
-            <ul id="menu">
-                <li><a href="{{ SITEURL }}/">Home</a></li>
-                <li><a href="{{ SITEURL }}/articles/programming/">Programming</a></li>
-                <li><a href="{{ SITEURL }}/articles/using-software/">Using Software</a></li>
-                <li><a href="{{ SITEURL }}/pages/about/">About</a></li>
-		<li><a href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" title="RSS feed">Subscribe</a></li>
-            </ul>
+    {#
+                <form method="get" id="search-form" action="#todo">
+                    <label for="s" class="assistive-text">Search</label>
+                    <input type="text" class="field" name="s" id="s" placeholder="Search" />
+                    <input type="submit" class="submit" name="submit" id="searchsubmit" value="Go" />
+                </form>
+    #}
 
-{#
-            <form method="get" id="search-form" action="#todo">
-                <label for="s" class="assistive-text">Search</label>
-                <input type="text" class="field" name="s" id="s" placeholder="Search" />
-                <input type="submit" class="submit" name="submit" id="searchsubmit" value="Go" />
-            </form>
-#}
+            </nav><!-- /nav -->
 
-        </nav><!-- /nav -->
+            <section id="page">
+                <section id="content" role="main" class="{% block page_class %}{% endblock %}">
+                    {% block content %}
+                    {% endblock %}
+                </section>
+            </section><!-- #page -->
 
-        <section id="page">
-            <section id="content" role="main" class="{% block page_class %}{% endblock %}">
-                {% block content %}
-                {% endblock %}
-            </section>
-        </section><!-- #page -->
-
+        </div>
     </body>
 </html>
