@@ -11,15 +11,20 @@
         <meta property="og:image" content="" />
 
         {% assets filters="compass,cssmin,gzip", output="css/style.css", "sass/style.sass" %}
-            <link rel="stylesheet" type="text/css" href="{{ SITE_URL }}/{{ ASSET_URL }}">
+            <link rel="stylesheet" type="text/css" href="{{ SITE_URL }}/{{ ASSET_URL }}" />
         {% endassets %}
+
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="{{ SITE_URL }}/theme/js/html5shiv-printshiv.js"></script>
+        <![endif]-->
 
     </head>
     <body>
 
+{#
         <header id="branding" role="banner">
         </header><!-- #branding -->
-
+#}
         <nav>
 
             <ul id="menu">
