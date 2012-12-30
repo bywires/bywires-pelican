@@ -17,13 +17,20 @@ DEFAULT_PAGINATION = 3
 
 ARTICLE_URL = 'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'
-ARTICLE_EXCLUDES = ('pages',)
 
 CATEGORY_URL = 'articles/{slug}/'
 CATEGORY_SAVE_AS = 'articles/{slug}/index.html'
+CATEGORIES_SAVE_AS = False
 
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
+
+TAG_SAVE_AS = False
+TAGS_SAVE_AS = False
+
+AUTHOR_SAVE_AS = False
+
+ARCHIVES_SAVE_AS = False
 
 PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap',]
 
