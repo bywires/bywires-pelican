@@ -15,6 +15,8 @@ DEFAULT_LANG = u'en'
 
 DEFAULT_PAGINATION = 3
 
+DISQUS_SITENAME = 'dev-bywires'
+
 ARTICLE_DIR = 'articles'
 ARTICLE_URL = 'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'

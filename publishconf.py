@@ -7,6 +7,8 @@ from pelicanconf import *
 
 SITEURL = 'http://blog.bywires.com'
 
+DISQUS_SITENAME = 'bywires'
+
 DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
