@@ -4,7 +4,7 @@ Author: Admin
 Category: programming
 Tags: builder pattern, factory patten, legacy code, patterns, pci dss
 
-(Be sure to read [Part 1](|filename|/pci-dss-compliance-and-spaghetti-code-part-1.md) and [Part 2](|filename|/pci-dss-compliance-and-spaghetti-code-part-2.md) first!)
+(Be sure to read [Part 1](|filename|/articles/pci-dss-compliance-and-spaghetti-code-part-1.md) and [Part 2](|filename|/articles/pci-dss-compliance-and-spaghetti-code-part-2.md) first!)
 
 When writing new code I find its a good idea to start at your
 integration point and then write that client code, whether just by

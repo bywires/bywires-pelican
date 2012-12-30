@@ -118,7 +118,7 @@ refactoring methods described in one of my favorite programming books,
 <a hre="http://amzn.com/0131177052">Working Effectively with Legacy
 Code</a>. These changes produced something I could release immediately.
 
-Continue to [Part 2](|filename|/pci-dss-compliance-and-spaghetti-code-part-2.md)!
+Continue to [Part 2](|filename|/articles/pci-dss-compliance-and-spaghetti-code-part-2.md)!
 
 [Payment Card Industry Data Security Standard (PCI DSS)]: http://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard
 [Command Pattern]: http://en.wikipedia.org/wiki/Command_pattern

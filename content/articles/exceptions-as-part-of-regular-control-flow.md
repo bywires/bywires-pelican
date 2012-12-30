@@ -28,7 +28,7 @@ This seems odd considering that business layer classes aren't
 necessarily made for only one code path or even one application and
 therefore lack context to determine the exceptionality of the condition.
 I touch on this a bunch in my 
-[Exceptions vs Null](|filename|/exceptions-vs-null.md) article.
+[Exceptions vs Null](|filename|/articles/exceptions-vs-null.md) article.
 
 There are lots of "crazy" things you can do with exceptions and if
 you're interested in seeing more check out [this article][] on

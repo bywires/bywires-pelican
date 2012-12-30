@@ -4,7 +4,7 @@ Author: Admin
 Category: programming
 Tags: composite pattern, gateway pattern, legacy code, patterns, pci dss
 
-(Be sure to read [Part 1](|filename|/pci-dss-compliance-and-spaghetti-code-part-1.md) first!)
+(Be sure to read [Part 1](|filename|/articles/pci-dss-compliance-and-spaghetti-code-part-1.md) first!)
 
 The first iteration of my [Command objects][] could continue to use our
 existing [payment gateway][] code, but this would not be acceptable by
@@ -51,7 +51,7 @@ causes an error instantly - do not pass GO, do not collect \$200. This
 kind of defensiveness seems pretty important for a system as critical as
 this one (one that receives money).
 
-Continue to [Part 3](|filename|/pci-dss-compliance-and-spaghetti-code-part-3.md)!
+Continue to [Part 3](|filename|/articles/pci-dss-compliance-and-spaghetti-code-part-3.md)!
 
 [Command objects]: http://en.wikipedia.org/wiki/Command_pattern
 [payment gateway]: http://en.wikipedia.org/wiki/Payment_gateway
