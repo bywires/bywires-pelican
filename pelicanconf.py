@@ -46,3 +46,5 @@ SITEMAP = {
 THEME = 'themes/bywires'
 
 FEED_ALL_RSS = 'feeds/all.rss'
+
+FILES_TO_COPY = (('extra/.htaccess', '.htaccess'), ('extra/robots.txt', 'robots.txt'),)
