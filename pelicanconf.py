@@ -32,7 +32,10 @@ AUTHOR_SAVE_AS = False
 
 ARCHIVES_SAVE_AS = False
 
-PLUGINS = ['pelican.plugins.assets', 'pelican.plugins.sitemap',]
+PLUGINS = [
+    'pelican.plugins.assets', 
+    'pelican.plugins.sitemap',
+    ]
 
 WEBASSETS = True
 
@@ -54,4 +57,9 @@ THEME = 'themes/bywires'
 
 FEED_ALL_RSS = 'feeds/all.rss'
 
-FILES_TO_COPY = (('extra/.htaccess', '.htaccess'), ('extra/robots.txt', 'robots.txt'),)
+FILES_TO_COPY = (
+    ('extra/.htaccess', '.htaccess'), 
+    ('extra/robots.txt', 'robots.txt'),
+    ('extra/favicon.gif', 'favicon.gif'),
+    ('extra/favicon.ico', 'favicon.ico'),
+    )
