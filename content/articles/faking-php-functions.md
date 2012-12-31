@@ -11,7 +11,7 @@ than -1/0/false/null. Holy shit. I almost never write something that did
 a straight pass-through - no parameter changes, method signature
 identical to the underlying function. I'd find myself spending time and
 thinking a lot about this library I was building. So PHP does it
-“wrong”, what does “right” look like? This can be a time-consuming
+"wrong", what does "right" look like? This can be a time-consuming
 exercise, but these kinds of libraries can get reused a lot. Writing
 tests for what you've done can be a problem as well. One of these
 problems is the inspiration for this post.
@@ -88,7 +88,7 @@ have to mock our PHP\_Functions object.
 Generally speaking, if someone shows me a magic method like \_\_call() I
 find myself unable to reach their heart through their throat but I keep
 trying. My arms are big and their throats are small. It just doesn't
-work... I keep “breaking” these people. Anyways, I'm not a fan. I
+work... I keep "breaking" these people. Anyways, I'm not a fan. I
 haven't found them to be the least bit useful except for adapting some
 legacy code (like I am sort of doing in my example) and maybe making a
 [Decorator][] base class if working with code with no type hints (I
