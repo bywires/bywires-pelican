@@ -90,7 +90,7 @@ The first thing when I thought when I saw this was "What about things
 like Python's StopIteration?" One line later its mentioned. Yay! This
 article may be reading my mind. I do wonder if the fact that
 StopIteration exist in [Python][], [Ruby][], and [Javascript][] now
-might start to carve away at [exception/null failure/absence debate][].
+might start to carve away at [exception/null failure/absence debate](|filename|/articles/exceptions-vs-null.md).
 I'd like to know more about the decision making that went into the the
 design of feature but so far have failed to find any discussions on the
 matter.
@@ -116,4 +116,3 @@ surprised to find already exists somewhere):
 [Python]: http://docs.python.org/library/exceptions.html#exceptions.StopIteration
 [Ruby]: http://books.google.com/books?id=jcUbTcr5XWwC&pg=PA138&lpg=PA138&dq=stopiteration+in+ruby&source=bl&ots=fHIjsb4sdD&sig=6TYYoWQX9zw-un9WPZMa4qk-UrA&hl=en&ei=1-N6TOefCIaKlwfT7bSzCg&sa=X&oi=book_result&ct=result&resnum=8&ved=0CDsQ6AEwBw#v=onepage&q=stopiteration%20in%20ruby&f=false
 [Javascript]: https://developer.mozilla.org/en/JavaScript/Guide/Iterators_and_Generators
-[exception/null failure/absence debate]: http://www.blogger.com/2010/08/exceptions-vs-null.html
