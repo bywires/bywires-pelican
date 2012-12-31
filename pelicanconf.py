@@ -3,7 +3,7 @@
 
 AUTHOR = u'Bob McKee'
 SITENAME = u'Bywires.com'
-SITEURL = ''
+SITEURL = 'http://localhost:8000'
 
 TIMEZONE = 'America/New_York'
 
