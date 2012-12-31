@@ -8,20 +8,20 @@ Tags: blogging, pelican, python, blogger, wordpress
 
 In this iteration of my blog I've switched away from Blogger.  At this point in my life Blogger just bummed me out.  A few of my gripes with Blogger:
 
-- Bland *classic* pre made themes
-- The newer *dynamic* (pooh aaah!) templates are a bit ridiculous.  I have a blog with basically static content.  I don't need a rich JavaScript app with eight different viewing choices.  The reading experience on these blogs always felt odd and foreign to me, and certainly not at all beneficial.
+- Bland *classic* themes
+- The newer *dynamic* (ooh aaah!) themes are a bit ridiculous.  I have a blog with basically static content.  I don't need a rich JavaScript app with eight different viewing choices.  The reading experience on blogs that use these themes always felt odd and foreign to me, and the *richness* certainly not at all beneficial.
 - Changing themes can change the URLs of your posts (One change added a "_\d{1, 3}" to the end of my post slug).  It obviously isn't good when you change your permalinks.
-- The editor for customizing templates is just not good enough the code for building to it is crammed into one massive, not syntax highlighted, monster document.
+- The editor for customizing templates is just not good enough.  The code is crammed into one massive, not syntax highlighted, monster document that you can tweak in a little textarea.
 
 On the other side Blogger does have some things going for it:
 
-- Almost zero setup if you go with a pre made theme
+- Almost zero setup if you go with a premade theme
 - Free hosting that can survive high traffic events
 - Very easy for non-programmers
 
 ## Wordpress as a replacement
 
-When switching from Blogger, the obvious alternative is Wordpress.  I started developing a theme on Wordpress and it wasn't terrible.  For a quick setup I even found a pre made Wordpress development environment created using [Vagrant](http://vagrantup.com/).  I took the entire Wordpress installation and checked it into Git.  I removed the default theme and plugins I didn't need.  I added plugins and checked them right into my repo.  Theme development wasn't terrible.  Wordpress is written in PHP so I, along with many many web developers, have tons of PHP experience to leverage.
+When switching from Blogger, the obvious alternative is Wordpress.  I started developing a theme on Wordpress and it wasn't terrible.  For a quick setup I even found a premade Wordpress development environment created using [Vagrant](http://vagrantup.com/).  I took the entire Wordpress installation and checked it into Git.  I removed the default theme and plugins I didn't need.  I added plugins and checked them right into my repo.  Theme development wasn't terrible.  Wordpress is written in PHP so I, along with many many web developers, have tons of PHP experience to leverage.
 
 I could probably have gone live with my Wordpress and been fairly happy.  That said, here are a few things I did not like:
 
@@ -30,7 +30,7 @@ I could probably have gone live with my Wordpress and been fairly happy.  That s
 - The theme API had that *we know its wrong but we're stuck with it* feel to it.  That doesn't mean it isn't usable, but just makes it a little less enjoyable to work with.
 - Without heavy caching tools like [WP Super Cache](http://wordpress.org/extend/plugins/wp-super-cache/) its very slow.
 - Theres still a database for mostly static content.  In a high traffic scenario that database is going to be doing a lot of work... but why?
-- I realized that I was going to make an *About Me* page for the site in development, but to get that page to production it would involve some sort of export and import.
+- I realized that I was going to make an *About Me* page for the site in development, but to get that page to production it would involve some sort of export and import which is hardly convenient.
 
 Wordpress has all the benefits I listed for Blogger plus a few more:
 
