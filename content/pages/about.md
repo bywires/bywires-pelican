@@ -7,7 +7,7 @@ Hey!  My name is Bob McKee and I'm a software engineer working in Boston, MA.  F
 
 My programming articles are the the results of long discussions, sometimes arguments, with coworkers and friends.  When it comes to programming, of course you need to *get it done*, but thats not enough.  There is usually more to a project than short term goals.  The way you architect code can have real measurable differences in your ability to grow your product.  This is where interest lies.
 
-Writing allows me to organize my thoughts and share them with others I'm working with.  Hopefully this provides value on my own projects with my own teams.  If by chance it helps you on your projects… you're welcome.  :)
+Writing allows me to organize my thoughts and share them with others I'm working with.  Hopefully this provides value on my own projects with my own teams.  If by chance it helps you on your projects... you're welcome.  :)
 
 ## Recommended reading
 
