@@ -15,6 +15,18 @@
         <div class="entry-date">
             Posted on <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
         </div><!-- .entry-date -->
+
+        <ul class="social-links">
+            <li><a href="https://twitter.com/share" 
+                   class="twitter-share-button" 
+                   data-lang="en">Tweet</a></li>
+            <li><div class="fb-like" 
+                     data-href="{{ SITEURL }}/{{ article.url }}" 
+                     data-send="true" 
+                     data-layout="button_count"
+                     data-width="450" 
+                     data-show-faces="false"></div></li>
+        </ul>
     </footer><!-- #entry-meta -->
 
 </article>
@@ -23,16 +35,12 @@
 <div class="comments">
     <a name="comments"></a>
     <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_identifier = "{{ article.slug }}";
-        (function() {
-            var dsq = document.createElement('script'); 
-            dsq.type = 'text/javascript'; 
-            dsq.async = true;
-            dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
+    {% import 'disqus.html' as disqus %}
+    {{ disqus.embed(DISQUS_SITENAME, article.slug) }}
 </div>
 {% endif %}
+
+{% include 'twitter_button.html' %}
+{% include 'facebook_button.html' %}
+
 {% endblock content %}
