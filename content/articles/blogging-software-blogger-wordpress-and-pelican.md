@@ -29,14 +29,14 @@ I could probably have gone live with my Wordpress and been fairly happy.  That s
 - Some of the theme API function naming makes me cringe.  the_title().  the_content().  the_ID().  the_facepalm().
 - The theme API had that *we know its wrong but we're stuck with it* feel to it.  That doesn't mean it isn't usable, but just makes it a little less enjoyable to work with.
 - Without heavy caching tools like [WP Super Cache](http://wordpress.org/extend/plugins/wp-super-cache/) its very slow.
-- Theres still a database for mostly static content.  In a high traffic scenario that database is going to be doing a lot of work… but why?
+- Theres still a database for mostly static content.  In a high traffic scenario that database is going to be doing a lot of work... but why?
 - I realized that I was going to make an *About Me* page for the site in development, but to get that page to production it would involve some sort of export and import.
 
 Wordpress has all the benefits I listed for Blogger plus a few more:
 
-- Lots of plugins.
-- Lots of themes.
-- Ability to design themes in the tools of your choice, meaning things like editors but also using tools like LESS CSS, Compass, or JQuery.
+- Lots of plugins
+- Lots of themes
+- Ability to design themes in the tools of your choice, meaning things like editors but also using tools like LESS CSS, Compass, or JQuery
 
 ## Pelican, a Python-based static site generator
 
@@ -48,13 +48,13 @@ Pelican uses [Jinja](http://jinja.pocoo.org/) for templates; a great choice in m
 
 Overall why I like Pelican:
 
-- Good, simple theme API.
-- Lets me use tools like LESS CSS or SASS.
-- Local development is stupid-easy to get started with.
-- Generates static files which leave plenty of options when scaling is a concern.
+- Good, simple theme API
+- Lets me use tools like LESS CSS or SASS
+- Local development is stupid-easy to get started with
+- Generates static files which leave plenty of options when scaling is a concern
 - [All my content is in Git](https://github.com/bywires/bywires-pelican).  No exceptions.
-- My content is portable.
-- I can write posts using whatever I want… they're just files on my computer.  Writing posts on the train with no Wifi - perfectly fine.
+- My content is portable
+- I can write posts using whatever I want... they're just files on my computer.  Writing posts on the train with no Wifi - perfectly fine.
 
 I could get into the pitfalls of Pelican but I think the biggest just boil down to small community.  The documentation is still very good, but if you're googling for something don't expect to find much community discussion.  I think it has the right plugins available right now, but if you wanted to do something that wasn't already in Pelican, expect to be writing code.  This of course is a far cry from the experience you'd have with Wordpress and its 20k+ plugin library.
 
