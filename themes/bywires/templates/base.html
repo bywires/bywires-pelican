@@ -4,6 +4,12 @@
     {% block headers %}
         <meta charset="charset=UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        {% if COPYRIGHT_NAME %}<meta name="copyright" content="{{ COPYRIGHT_NAME|e }}" />{% endif %}
+
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+
         <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
 
         <link rel="alternate" type="application/atom+xml"
@@ -14,10 +20,6 @@
                                title="{{ SITENAME }} - RSS"
                                href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" /> 
         {% endif %}
-
-        <meta property="og:title" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:image" content="" />
 
         {% assets filters="compass,cssmin", output="css/style.css", "sass/style.sass" %}
             <link rel="stylesheet" type="text/css" href="{{ SITE_URL }}/{{ ASSET_URL }}" />
@@ -68,6 +70,12 @@
                     {% endblock %}
                 </section>
             </section><!-- #page -->
+
+            <footer id="main-footer">
+            {% if COPYRIGHT %}
+                <div id="copyright">{{ COPYRIGHT }}</div>
+            {% endif %}
+            </footer>
 
         </div>
 

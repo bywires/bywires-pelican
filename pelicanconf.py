@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+from datetime import date
+
 AUTHOR = u'Bob McKee'
 SITENAME = u'Bywires.com'
 SITEURL = 'http://localhost:8000'
 
 TIMEZONE = 'America/New_York'
+
+COPYRIGHT = 'Copyright &copy; %s Robert McKee. All rights reserved.' % date.today().year
+COPYRIGHT_NAME = 'Robert McKee'
 
 DATE_FORMATS = {
     'en': '%B %d, %Y',
