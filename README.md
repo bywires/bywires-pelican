@@ -5,7 +5,7 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
 ## Todo
 
 - Phase 2
-  - Logo
+  - Favicon
 - Phase 3
   - URL shortening for social sharing
   - <? in rss feed
@@ -17,3 +17,4 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
 - Phase 5
   - add Reddit sharing
   - standardize sharing buttons
+  - setup FB sharing meta tags

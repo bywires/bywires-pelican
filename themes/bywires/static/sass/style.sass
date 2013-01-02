@@ -21,10 +21,42 @@ input[type="text"]
   max-width: 800px
  
 
+#branding
+  padding: 20px
+  font-family: Georgia
+  font-size: 48px
+  text-shadow: 1px 1px 10px #BBB
+  text-align: center
+
+  @media (max-width: 768px)
+    font-size: 26px
+    background: #F9F9F9
+
+  div
+    text-align: left
+    display: table
+    margin-left: auto 
+    margin-right: auto
+
+  .line
+    display: table-row
+
+  span
+    display: table-cell
+
+  .to, .from
+    text-align: right
+
+  .my-team, .colt-daggerfist
+    font-weight: bold
+
+    @media (min-width: 768px)
+      letter-spacing: 0.10em
+    
+
 // mobile, tablet
 @media (max-width: 768px)
   #main-nav
-    padding: 20px
     border-bottom: 2px solid #EEE
 
     ul
@@ -41,8 +73,7 @@ input[type="text"]
       white-space: nowrap
       color: $content-link-color
       font-family: $nav-font
-      letter-spacing: 0.12em
-      padding: 10px 0
+      padding: 10px 20px
 
       &:visited
         color: $content-link-visited-color
@@ -65,7 +96,7 @@ input[type="text"]
 
         a
           display: inline-block
-          padding: 30px 15px 15px 15px
+          padding: 15px
           margin-bottom: -2px
           font-family: $nav-font
           color: #BBB
