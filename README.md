@@ -4,8 +4,6 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
 
 ## Todo
 
-- Phase 2
-  - Favicon
 - Phase 3
   - URL shortening for social sharing
   - <? in rss feed

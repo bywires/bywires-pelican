@@ -68,6 +68,5 @@ FEED_ALL_RSS = 'feeds/all.rss'
 FILES_TO_COPY = (
     ('extra/.htaccess', '.htaccess'), 
     ('extra/robots.txt', 'robots.txt'),
-    ('extra/favicon.gif', 'favicon.gif'),
     ('extra/favicon.ico', 'favicon.ico'),
     )
