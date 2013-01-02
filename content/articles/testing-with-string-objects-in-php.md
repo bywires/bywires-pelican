@@ -1,8 +1,9 @@
 Title: Testing with string objects in PHP
 Date: 2010-07-29 23:56
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: php, testing
+Keywords: php, testing
 
 As shown in the last post there are benefits to instantiating the class
 under test in setUp(). With objects its simple to create them and

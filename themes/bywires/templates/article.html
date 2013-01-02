@@ -1,5 +1,13 @@
 {% extends "base.html" %}
+
+{% block headers %}
+    {{ super() }}
+    <meta name="author"   content="{{ article.author }}" />
+    <meta name="keywords" content="{{ article.keywords|e }}" />
+{% endblock %}
+
 {% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+
 {% block content %}
 <article>
 

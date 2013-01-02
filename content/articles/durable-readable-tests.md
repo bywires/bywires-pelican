@@ -1,8 +1,9 @@
 Title: Durable, readable tests
 Date: 2010-07-29 23:10
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: testing
+Keywords: testing
 
 Anyone who has written tests is familiar with our friend the setUp()
 fixture method. We use setUp() to do all that work that's common across

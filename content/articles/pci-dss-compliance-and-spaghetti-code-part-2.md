@@ -1,8 +1,9 @@
 Title: PCI DSS compliance and spaghetti code, Part 2
 Date: 2011-08-01 13:19
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: composite pattern, gateway pattern, legacy code, patterns, pci dss
+Keywords: composite pattern, gateway pattern, legacy code, patterns, pci dss
 
 (Be sure to read [Part 1](|filename|/articles/pci-dss-compliance-and-spaghetti-code-part-1.md) first!)
 

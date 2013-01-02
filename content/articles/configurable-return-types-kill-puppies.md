@@ -1,8 +1,9 @@
 Title: Configurable return types kill puppies
 Date: 2010-07-20 02:33
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: anti-patterns, patterns
+Keywords: anti-patterns, patterns
 
 Here's some code you could see using [PHP's Adodb][] library. The
 library isn't the point but its demonstrates a pattern I see a fair

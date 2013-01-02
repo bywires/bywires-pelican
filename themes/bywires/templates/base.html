@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
+    {% block headers %}
         <meta charset="charset=UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
@@ -18,7 +18,7 @@
         <script type="text/javascript" src="{{ SITE_URL }}/theme/js/html5shiv-printshiv.js"></script>
         <script type="text/javascript" src="{{ SITE_URL }}/theme/js/respond.min.js"></script>
         <![endif]-->
-
+    {% endblock headers %}
     </head>
     <body>
         <div id="container">

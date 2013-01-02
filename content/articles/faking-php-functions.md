@@ -1,8 +1,9 @@
 Title: Faking PHP functions
 Date: 2010-07-22 21:28
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: legacy code, php, testing
+Keywords: legacy code, php, testing
 
 Usually when I want to fake some kind of functionality provided by PHP,
 I create a new library that maps all that crazy API stuff baked into PHP

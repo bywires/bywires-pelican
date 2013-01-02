@@ -1,8 +1,9 @@
 Title: PCI DSS compliance and spaghetti code, Part 1
 Date: 2011-02-10 22:43
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: command pattern, legacy code, patterns, pci dss
+Keywords: command pattern, legacy code, patterns, pci dss
 
 Anyone taking a substantial amount of credit card payments will
 eventually stumble onto the [Payment Card Industry Data Security

@@ -1,8 +1,9 @@
 Title: Why I'll never recommend the "Universal constructor" pattern
 Date: 2010-07-20 12:44
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: anti-patterns, patterns
+Keywords: anti-patterns, patterns
 
 I read the [PlanetPHP][] feed every day and honestly it usually leaves
 me scratching my head a bit. Recently I saw a post referencing the

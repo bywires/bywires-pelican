@@ -1,8 +1,9 @@
 Title: Guitar Hero-like scrolling music on Ubuntu
 Date: 2011-08-02 13:00
-Author: Admin
+Author: Bob McKee
 Category: using-software
 Tags: drums, linux, midi, music, playonlinux, synthesia, ubuntu, wine
+Keywords: drums, linux, midi, music, playonlinux, synthesia, ubuntu, wine
 
 This year I began to learn to play the drums. Its been fun but I am not
 the most dedicated student. Its a hobby and I slack off a lot, but I

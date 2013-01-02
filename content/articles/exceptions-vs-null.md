@@ -1,8 +1,9 @@
 Title: Exceptions vs Null
 Date: 2010-08-24 19:41
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: anti-patterns, exceptions
+Keywords: anti-patterns, exceptions
 
 Plenty of developers agree that returning mixed-type results is not a
 good practice. It leads to conditional statements wherever the method

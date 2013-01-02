@@ -1,8 +1,9 @@
 Title: Exceptions as part of "regular" control flow
 Date: 2010-08-31 03:38
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: exceptions
+Keywords: exceptions
 
 I've heard this rule a lot: "Never use exception for control flow." Its
 an interesting statement to parse. We know what an exception is, but the

@@ -1,8 +1,9 @@
 Title: Code smell: Too many private methods
 Date: 2010-07-21 12:46
-Author: Admin
+Author: Bob McKee
 Category: programming
 Tags: anti-patterns, code smell
+Keywords: anti-patterns, code smell
 
 I mentioned this in my last post so I figured I'd add some examples to
 clarify. Consider the following code:

@@ -1,8 +1,9 @@
 Title: Streaming Spotify from OS X to XBMC on a Raspberry Pi using Soundflower, LadioCast, and Icecast
 Date: 2012-12-08 14:48
-Author: Admin
+Author: Bob McKee
 Category: using-software
 Tags: audio, homebrew, icecast, ladiocast, linux, music, nicecast, raspberry pi, soundflower, streaming
+Keywords: audio, homebrew, icecast, ladiocast, linux, music, nicecast, raspberry pi, soundflower, streaming
 
 My Goal here was pretty simple: Play [Spotify][] on my [Raspberry Pi][]
 running [XBMC][]. The easiest and most usable way to do this would be to

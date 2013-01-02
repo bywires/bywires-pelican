@@ -1,8 +1,9 @@
 Title: Blogging software:  Blogger, Wordpress, and Pelican
 Date: 2012-12-30 19:00
-Author: Admin
+Author: Bob McKee
 Category: using-software
 Tags: blogging, pelican, python, blogger, wordpress
+Keywords: blogging, pelican, python, blogger, wordpress
 
 ## What's wrong with Blogger?
 
