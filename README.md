@@ -7,14 +7,13 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
 - Phase 2
   - Logo
   - search
-  - social links
   - old URLs still broken
 - Phase 3
-  - Tags?
-  - icons for everything
-  - related posts
+  - URL shortening for social sharing
   - google analytics
   - <? in rss feed
   - image hosting
 - Phase 4
   - precompression, gzip
+  - Tags?
+  - related posts

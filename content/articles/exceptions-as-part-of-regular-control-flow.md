@@ -103,7 +103,7 @@ name that is a command. Maybe something like this (which I would not be
 surprised to find already exists somewhere):
 
 <div class="code php" markdown="1">
-    <?} until(RecordNotFoundException $e) {
+    <?until(RecordNotFoundException $e) {
         print $recordSet->getNext()->getLabel() . "\n";
     }
 </div>
