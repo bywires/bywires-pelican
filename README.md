@@ -8,7 +8,6 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
   - Logo
 - Phase 3
   - URL shortening for social sharing
-  - google analytics
   - <? in rss feed
   - image hosting
 - Phase 4
