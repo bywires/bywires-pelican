@@ -1,32 +1,29 @@
-# v1
 Redirect 301 /2010/07/code-smell-too-many-private-methods.html http://blog.bywires.com/articles/programming/code-smell-too-many-private-methods/
+Redirect 301 /2010/07/code-smell-too-many-private-methods_21.html http://blog.bywires.com/articles/programming/code-smell-too-many-private-methods/
 Redirect 301 /2010/07/configurable-return-types-kill-puppies.html http://blog.bywires.com/articles/programming/configurable-return-types-kill-puppies/
 Redirect 301 /2010/07/durable-readable-tests.html http://blog.bywires.com/articles/programming/durable-readable-tests/
-Redirect 301 /2010/07/faking-php-functions.html http://blog.bywires.com/articles/programming/faking-php-functions/
-Redirect 301 /2010/07/private-visibility-in-open-source.html http://blog.bywires.com/articles/programming/private-visibility-in-open-source/
-Redirect 301 /2010/07/testing-with-string-objects-in-php.html http://blog.bywires.com/articles/programming/testing-with-string-objects-in-php/
-Redirect 301 /2010/07/why-i-never-recommend-constructor.html http://blog.bywires.com/articles/programming/why-i-never-recommend-constructor/
-Redirect 301 /2010/08/categorizing-exceptions-subtypes-vs.html http://blog.bywires.com/articles/programming/categorizing-exceptions-subtypes-vs/
-Redirect 301 /2010/08/exceptions-as-part-of-control-flow.html http://blog.bywires.com/articles/programming/exceptions-as-part-of-control-flow/
-Redirect 301 /2010/08/exceptions-vs-null.html http://blog.bywires.com/articles/programming/exceptions-vs-null/
-Redirect 301 /2011/02/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/02/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/08/guitar-hero-like-scrolling-music-on.html http://blog.bywires.com/articles/using-software/guitar-hero-like-scrolling-music-on/
-Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/10/quick-dive-into-darktable.html http://blog.bywires.com/articles/using-software/a-quick-dive-into-darktable/
-Redirect 301 /2012/12/if-programming-is-art.html http://blog.bywires.com/articles/programming/if-programming-is-art/
-Redirect 301 /2012/12/streaming-spotify-from-os-x-to-xbmc-on.html http://blog.bywires.com/articles/using-software/streaming-spotify-from-os-x-to-xbmc-on/
-
-# v2
-Redirect 301 /2010/07/code-smell-too-many-private-methods_21.html http://blog.bywires.com/articles/programming/code-smell-too-many-private-methods/
 Redirect 301 /2010/07/durable-readable-tests_29.html http://blog.bywires.com/articles/programming/durable-readable-tests/
+Redirect 301 /2010/07/faking-php-functions.html http://blog.bywires.com/articles/programming/faking-php-functions/
 Redirect 301 /2010/07/faking-php-functions_22.html http://blog.bywires.com/articles/programming/faking-php-functions/
+Redirect 301 /2010/07/private-visibility-in-open-source.html http://blog.bywires.com/articles/programming/private-visibility-in-open-source/
 Redirect 301 /2010/07/private-visibility-in-open-source_20.html http://blog.bywires.com/articles/programming/private-visibility-in-open-source/
+Redirect 301 /2010/07/testing-with-string-objects-in-php.html http://blog.bywires.com/articles/programming/testing-with-string-objects-in-php/
 Redirect 301 /2010/07/testing-with-string-objects-in-php_29.html http://blog.bywires.com/articles/programming/testing-with-string-objects-in-php/
+Redirect 301 /2010/07/why-i-never-recommend-constructor.html http://blog.bywires.com/articles/programming/why-ill-never-recommend-the-universal-constructor-pattern/
+Redirect 301 /2010/08/categorizing-exceptions-subtypes-vs.html http://blog.bywires.com/articles/programming/categorizing-exceptions-subtypes-vs-error-codes/
+Redirect 301 /2010/08/exceptions-as-part-of-control-flow.html http://blog.bywires.com/articles/programming/exceptions-as-part-of-regular-control-flow/
+Redirect 301 /2010/08/exceptions-vs-null.html http://blog.bywires.com/articles/programming/exceptions-vs-null/
 Redirect 301 /2010/08/exceptions-vs-null_24.html http://blog.bywires.com/articles/programming/exceptions-vs-null/
-Redirect 301 /2011/02/pci-dss-compliance-and-spaghetti-code_10.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/08/guitar-hero-like-scrolling-music-on_02.html http://blog.bywires.com/articles/using-software/guitar-hero-like-scrolling-music-on/
-Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code_01.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
-Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code_4387.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code/
+Redirect 301 /2011/02/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code-part-1/
+Redirect 301 /2011/02/pci-dss-compliance-and-spaghetti-code_10.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code-part-1/
+Redirect 301 /2011/08/guitar-hero-like-scrolling-music-on.html http://blog.bywires.com/articles/using-software/guitar-hero-like-scrolling-music-on-ubuntu/
+Redirect 301 /2011/08/guitar-hero-like-scrolling-music-on_02.html http://blog.bywires.com/articles/using-software/guitar-hero-like-scrolling-music-on-ubuntu/
+Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code-part-2/
+Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code_01.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code-part-2/
+Redirect 301 /2011/08/pci-dss-compliance-and-spaghetti-code_4387.html http://blog.bywires.com/articles/programming/pci-dss-compliance-and-spaghetti-code-part-3/
+Redirect 301 /2011/10/quick-dive-into-darktable.html http://blog.bywires.com/articles/using-software/a-quick-dive-into-darktable/
+Redirect 301 /2012/12/if-programming-is-art.html http://blog.bywires.com/articles/programming/if-programming-is-an-art/
+Redirect 301 /2012/12/streaming-spotify-from-os-x-to-xbmc-on.html http://blog.bywires.com/articles/using-software/streaming-spotify-from-os-x-to-xbmc-on-a-raspberry-pi-using-soundflower-ladiocast-and-icecast/
+
+ErrorDocument 404 /pages/page-not-found/index.html
+ErrorDocument 500 /pages/server-error/index.html

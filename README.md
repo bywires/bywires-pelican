@@ -6,8 +6,6 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
 
 - Phase 2
   - Logo
-  - search
-  - old URLs still broken
 - Phase 3
   - URL shortening for social sharing
   - google analytics
@@ -17,3 +15,6 @@ This repository contains all my files used by [Pelican](http://getpelican.com) t
   - precompression, gzip
   - Tags?
   - related posts
+- Phase 5
+  - add Reddit sharing
+  - standardize sharing buttons
