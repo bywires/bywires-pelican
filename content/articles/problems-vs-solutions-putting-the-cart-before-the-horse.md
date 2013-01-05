@@ -4,6 +4,7 @@ Author: Bob McKee
 Category: programming
 Tags: patterns, design patterns, decorator pattern, architecture
 Keywords: patterns, design patterns, decorator pattern, architecture, tension
+Description: In many cases it seems programmers are able to fix problems they don't fully understand.  How do they do it and how well is working?  Is there a better way?
 
 [Design patterns](http://en.wikipedia.org/wiki/Software_design_pattern) are common solutions to common problems.  They are a problem-solution pair.  If you were to ask your programmer friends to describe an [Observer Pattern](http://en.wikipedia.org/wiki/Observer_pattern) solution (implementation) I bet they'd nail it in a matter of seconds.  Yet, if you asked them describe the *problem* it aims to solve I bet even if they got it right the speed and quality of their answer would be less impressive.  The language would be a little fuzzy.  Maybe they'd resort to giving an example of when they used it and work backwards from there.
 

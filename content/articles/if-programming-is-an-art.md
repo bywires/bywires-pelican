@@ -2,6 +2,9 @@ Title: If Programming is an Art
 Date: 2012-12-09 16:30
 Author: Bob McKee
 Category: programming
+Tags: art
+Keywords: programming is art, programming is an art, programming is beautiful, beautiful code
+Description: If you accept the premise "programming is an art" where does that leave you?  I believe we are better served by defining our goals by objective measures instead of subjective measures such as beauty. 
 
 Some of our best and brightest programmers classify programming as an
 art ([Donald Knuth][], [Guido van Rossum, and Bjarne Stroustrup][] to
