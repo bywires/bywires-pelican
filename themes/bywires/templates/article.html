@@ -35,13 +35,14 @@
             Posted on <time datetime="{{ article.date.isoformat() }}" pubdate>{{ article.locale_date }}</time>
         </div><!-- .entry-date -->
 
+        {% set short_url = article.bitly_url|default(SITEURL ~ "/" ~  article.url)|e %}
         <ul class="social-links">
             <li><a href="https://twitter.com/share" 
                    class="twitter-share-button" 
                    data-lang="en"
-                   data-url="{{ SITEURL }}/{{ article.url }}">Tweet</a></li>
+                   data-url="{{ short_url }}">Tweet</a></li>
             <li><div class="fb-like" 
-                     data-href="{{ SITEURL }}/{{ article.url }}" 
+                     data-href="{{ short_url }}" 
                      data-send="true" 
                      data-layout="button_count"
                      data-width="450" 

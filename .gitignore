@@ -7,3 +7,4 @@
 .sass-cache/
 /Makefile
 .DS_Store
+/publishconf.py

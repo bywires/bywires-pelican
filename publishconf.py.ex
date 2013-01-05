@@ -16,4 +16,9 @@ DELETE_OUTPUT_DIRECTORY = True
 # Uncomment following line for absolute URLs in production:
 RELATIVE_URLS = False
 
-GOOGLE_ANALYTICS = "UA-37348181-1"
+GOOGLE_ANALYTICS = ''
+
+BITLY_USERNAME = ''
+BITLY_API_KEY = ''
+
+PLUGINS.append('pelican-bitly')
