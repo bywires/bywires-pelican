@@ -6,3 +6,4 @@
 /output/
 .sass-cache/
 /Makefile
+.DS_Store
