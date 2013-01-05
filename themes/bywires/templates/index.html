@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+
+{% block headers %}
+    {{ super() }}
+
+    <title>{{ SITENAME }}</title>
+    {% include 'open_graph.html' %}
+{% endblock %}
+
 {% block content %}
 {% if articles %}
 {% for article in articles_page.object_list %}  

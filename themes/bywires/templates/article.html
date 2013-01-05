@@ -2,11 +2,22 @@
 
 {% block headers %}
     {{ super() }}
-    <meta name="author"   content="{{ article.author }}" />
-    <meta name="keywords" content="{{ article.keywords|e }}" />
-{% endblock %}
 
-{% block title %}{{ article.title }} - {{ SITENAME }}{% endblock %}
+    <title>{{ article.title }} - {{ SITENAME }}</title>
+
+    <meta name="author" content="{{ article.author|e }}" />
+    <meta name="keywords" content="{{ article.keywords|e }}" />
+    <meta name="description" content="{{ article.description|e }}" />
+
+    {% set open_graph = { 
+        'og:type': 'article',
+        'og:title': '%s - %s' % (article.title, SITENAME),
+        'og:description': article.description,
+        'og:url': '%s/%s' % (SITEURL, article.url)
+        }
+    %}
+    {% include 'open_graph.html' %}
+{% endblock %}
 
 {% block content %}
 <article>
@@ -27,7 +38,8 @@
         <ul class="social-links">
             <li><a href="https://twitter.com/share" 
                    class="twitter-share-button" 
-                   data-lang="en">Tweet</a></li>
+                   data-lang="en"
+                   data-url="{{ SITEURL }}/{{ article.url }}">Tweet</a></li>
             <li><div class="fb-like" 
                      data-href="{{ SITEURL }}/{{ article.url }}" 
                      data-send="true" 

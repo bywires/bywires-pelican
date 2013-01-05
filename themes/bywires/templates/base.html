@@ -1,34 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" 
+      xmlns:fb="http://www.facebook.com/2008/fbml" 
+      xmlns:og="http://opengraphprotocol.org/schema/" 
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xml:lang="en" 
+      dir="ltr">
     <head>
     {% block headers %}
         <meta charset="charset=UTF-8" />
         <meta name="viewport" content="width=device-width" />
         {% if COPYRIGHT_NAME %}<meta name="copyright" content="{{ COPYRIGHT_NAME|e }}" />{% endif %}
 
-        <meta property="og:title" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:image" content="" />
-
-        <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-
         <link rel="alternate" type="application/atom+xml"
                                title="{{ SITENAME }} -  Atom"
                                href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" /> 
-        {% if FEED_ALL_RSS %}
+    {% if FEED_ALL_RSS %}
         <link rel ="alternate" type="application/rss+xml"
                                title="{{ SITENAME }} - RSS"
                                href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" /> 
-        {% endif %}
+    {% endif %}
 
-        {% assets filters="compass,cssmin", output="css/style.css", "sass/style.sass" %}
-            <link rel="stylesheet" type="text/css" href="{{ SITE_URL }}/{{ ASSET_URL }}" />
-        {% endassets %}
+    {% assets filters="compass,cssmin", output="css/style.css", "sass/style.sass" %}
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ ASSET_URL }}" />
+    {% endassets %}
 
         <!--[if lt IE 9]>
-        <script type="text/javascript" src="{{ SITE_URL }}/theme/js/html5shiv-printshiv.js"></script>
-        <script type="text/javascript" src="{{ SITE_URL }}/theme/js/respond.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/html5shiv-printshiv.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/theme/js/respond.min.js"></script>
         <![endif]-->
+
+
+    {% endblock headers %}
 
     {% if GOOGLE_ANALYTICS %}
         <script type="text/javascript">
@@ -43,8 +45,6 @@
           })();
         </script>
     {% endif %}
-
-    {% endblock headers %}
     </head>
     <body>
         <div id="container">

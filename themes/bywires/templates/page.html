@@ -1,5 +1,19 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }}{% endblock %}
+
+{% block headers %}
+    {{ super() }}
+
+    <title>{{ page.title }} - {{ SITENAME }}</title>
+
+    {% set open_graph = { 
+        'og:type': 'article',
+        'og:title': '%s - %s' % (page.title, SITENAME),
+        'og:url': '%s/%s' % (SITEURL, page.slug)
+        }
+    %}
+    {% include 'open_graph.html' %}
+{% endblock %}
+
 {% block content %}
 <article>
 

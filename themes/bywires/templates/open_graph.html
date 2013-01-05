@@ -1,0 +1,17 @@
+{% set open_graph_defaults = { 
+    'fb:admins': FB_ADMINS, 
+    'og:site_name': SITENAME,
+    'og:title': SITENAME,
+    'og:url': SITEURL,
+    'og:type': 'website',
+    'og:image': '%s/theme/img/simple-logo.png' % SITEURL,
+    }
+%}
+
+{% if open_graph %}
+    {% do open_graph_defaults.update(open_graph) %}
+{% endif %}
+
+{% for property, content in open_graph_defaults.iteritems() %}
+    <meta property="{{ property }}" content="{{ content|e }}"/>
+{% endfor %}

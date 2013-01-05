@@ -1,5 +1,19 @@
 {% extends "base.html" %}
+
+{% block headers %}
+    {{ super() }}
+
+    <title>{{ category.name|title }} - {{ SITENAME }}</title>
+
+    {% set open_graph = { 
+        'og:url': '%s/%s' % (SITEURL, category.slug)
+        }
+    %}
+    {% include 'open_graph.html' %}
+{% endblock %}
+
 {% block page_class %}{{ super() }} category{% endblock page_class %}
+
 {% block content %}
 <header class="page-header">
     <h1><a href="{{ SITEURL }}/{{ category.slug }}" title="Permalink" rel="bookmark">Articles: {{ category.name|title }}</a></h2>
@@ -12,7 +26,11 @@
     </header><!-- .entry-header -->
 
     <div class="entry-content">
-        {{ article.summary|striptags }}
+        {% if article.description -%}
+            {{ article.description }}
+        {% else %}
+            {{ article.summary|striptags }}
+        {%- endif %}
         <a href="{{ SITEURL }}/{{ article.url }}">Read full article</a>
     </div><!-- .entry-content -->
 

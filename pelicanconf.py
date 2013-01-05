@@ -22,6 +22,8 @@ DEFAULT_PAGINATION = 3
 
 DISQUS_SITENAME = 'dev-bywires'
 
+FB_ADMINS = 'bywires'
+
 ARTICLE_DIR = 'articles'
 ARTICLE_URL = 'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'
@@ -43,9 +45,13 @@ ARCHIVES_SAVE_AS = False
 PLUGINS = [
     'pelican.plugins.assets', 
     'pelican.plugins.sitemap',
-    ]
+]
 
 WEBASSETS = True
+
+JINJA_EXTENSIONS = [
+    'jinja2.ext.do',
+]
 
 SITEMAP = {
     'format': 'xml',
