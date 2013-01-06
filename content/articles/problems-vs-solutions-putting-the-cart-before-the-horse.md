@@ -34,7 +34,7 @@ If you are sitting alone at your desk quietly cursing "the code is slowing me do
 
 ## Building tension
 
-A programmer who has invested little time in understanding design patterns but has a high desire to use them is bound to produce some really stellar tension.  Lets play follow this eager idiot named Eddy Iddy.
+A programmer who has invested little time in understanding design patterns but has a high desire to use them is bound to produce some really stellar tension.  Lets follow just such an eager idiot named Eddy Iddy.
 
 Eddy is working on a game where the user can choose their own character and give it a bit of personality.  The characters can introduce themselves and those introductions can be modified at runtime with alternate speech styles.  Internally we also need to get the character ID from any given character object so we can assign it points as it completes different challenges in our game.
 
