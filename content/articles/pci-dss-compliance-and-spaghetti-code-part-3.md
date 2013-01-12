@@ -15,20 +15,20 @@ that request to the payment gateway, and gets a response back so we can
 act accordingly.
 
 <div class="code php" markdown="1">
-    <?$factory = new RequestFactory(); // get sale builder
+    <?$factory = new RequestFactory(); 
 
-    $builder = $factory->buildSaleRequest(); // get credit card, so we can set it
+    $builder = $factory->buildSaleRequest(); // get sale builder
 
-    $builder->withCreditCard()
+    $builder->withCreditCard() // get credit card, so we can set it
         ->setCardType($_POST['cardType'])
         ->setCardNumber($_POST['cardNumber'])
-        ->setExpirationDate($_POST['expirationDate']); // get address, so we can set it
+        ->setExpirationDate($_POST['expirationDate']); 
 
-    $builder->withBillingAddress()
+    $builder->withBillingAddress() // get address, so we can set it
         ->setCity($_POST['city'])
-        ->setState($_POST['state']); // send request to payment gateway
+        ->setState($_POST['state']); 
 
-    $response = $builder->execute();
+    $response = $builder->execute(); // send request to payment gateway
 </div>
 
 This seems pretty simple. I have objects to accept my user input which
