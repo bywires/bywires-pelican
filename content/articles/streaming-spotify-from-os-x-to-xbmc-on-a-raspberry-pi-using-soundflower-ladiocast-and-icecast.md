@@ -12,14 +12,17 @@ like all 3rd party Spotify libraries at the moment, seems to require a
 Spotify Premium account. If you, like me, aren't ready to spend $10 a
 month for the service then read on.
 
+There are other cheaper streaming options to consider but none for free.
+
+-   [Porthole](http://getporthole.com/) for $16
+-   [Airfoil](http://www.rogueamoeba.com/airfoil/) for $25
+-   [Nicecast](http://www.rogueamoeba.com/nicecast/) for $59
+
 The next option I considered was streaming from my Spotify desktop
 client on my laptop running OS X to XBMC. XBMC can play a [PLS file][]
 without any extra plugins installed so I rolled with that. I just needed
 to create a stream from my laptop running OS X which the PLS file would
 point to.
-
-For $59 you can do this in a couple of seconds using [Nicecast][]. I
-didn't want to spend $59 so I continued on my quest for *free*.
 
 Here are some brief descriptions of the software you're going to use:
 
