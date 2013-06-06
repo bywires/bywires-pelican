@@ -1,5 +1,5 @@
 Title: Template Method Trap
-Date: 2013-05-20 09:00
+Date: 2013-06-06 19:30
 Author: Bob McKee
 Category: programming
 Tags: template method pattern, inheritance
