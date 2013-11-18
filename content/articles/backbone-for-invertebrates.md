@@ -5,7 +5,7 @@ Category: programming
 Tags: javascript, backbone, jquery
 Keywords: javascript, backbone, jquery
 
-Its 2013 and I'm about to talk about [Backbone.js](http://backbonejs.org/), a four year old library that isn't on the bleeding edge of anything.  This isn't a post about Backbone.js so fans of [AngularJS](http://angularjs.org/), [Knockout](http://knockoutjs.com/), or new M-V-yadda-yadda-yadda framework can settle down.  I want to focus we can learn from any system **like** Backbone.js.
+Its 2013 and I'm about to talk about [Backbone.js](http://backbonejs.org/), a four year old library that isn't on the bleeding edge of anything.  This isn't a post about Backbone.js so fans of [AngularJS](http://angularjs.org/), [Knockout](http://knockoutjs.com/), or new M-V-yadda-yadda-yadda framework can settle down.  I want to focus on what we can learn from any system **like** Backbone.js.
 
 Backbone.js is a JavaScript library that separates data from display.  It defines data in terms of Models and Collections [of Models].  UI work is left to Views.  Views generate HTML and react to user-initiated events like button clicks.  Views may change Model and Collection data and they may react to changes to Model and Collection data.  These changes are communicated using custom Events.  [Backbone.js is not an MVC framework, but its close.](http://backbonejs.org/#FAQ-mvc)
 
@@ -33,14 +33,16 @@ $(function() {
     var thumbnails = $('#thumbnails'),
     	large = $('#large');    
     
-    // add thumbnails    
+    // add thumbnails
+    var imgs = [];
     $.each(photos, function(index, photo) {
     	var thumbnail = $('<img>')
     	    .prop('src', photo.thumbnail)
             .prop('alt', index)
     	    .data(photo);
-    	thumbnails.append(thumbnail);
+    	imgs.push(thumbnail);
     });
+    thumbnails.append(imgs);
     
     // listen for thumbnail clicks
     thumbnails.on('click', 'img', function() {
@@ -57,9 +59,9 @@ $(function() {
 
 *See it on [jsfiddle](http://jsfiddle.net/bywires/9Fbrr/)*
 
-Only 30 lines of code.  We have one type of control, the clickable thumbnails.  One type of data, the photos.  The data is coupled with the thumbnails using jQuery's `.data()` method, which "stores arbitrary data associated with the matched elements".  I use event delegation using jQuery's `.delegate()` method so I only need one listener on my thumbnails container rather than one listeners on each individual thumbnail.  I also benefit from being able to add and remove thumbnails from inside the container without having to re-attach event listeners each time.
+Only about 30 lines of code.  We have one type of control, the clickable thumbnails.  One type of data, the photos.  The data is coupled with the thumbnails using jQuery's `.data()` method, which "stores arbitrary data associated with the matched elements".  I use event delegation using jQuery's `.delegate()` method so I only need one listener on my thumbnails container rather than one listeners on each individual thumbnail.  I also benefit from being able to add and remove thumbnails from inside the container without having to re-attach event listeners each time.
 
-My equivalent Backbone.js implementation is below.  You'll notice that its not so terse - 100 lines of code.  More than three times the code for the same result.
+My equivalent Backbone.js implementation is below.  You'll notice that its not so terse - about 100 lines of code.  More than three times the code for the same result.
 
 ```javascript
 $(function() {
@@ -116,15 +118,14 @@ $(function() {
         },
         
         render: function() {
-            var $el = this.$el;
-            
+            var imgs = [];
             $.each(this.collection.models, function(index, photo) {
                 var thumbnail = $('<img>')
                        .prop('src', photo.get('thumbnail'))
                        .data('index', index);
-                
-                $el.append(thumbnail);
+                imgs.push(thumbnail);
             });
+            this.$el.append(imgs);
                    
             return this;
         },
@@ -161,7 +162,7 @@ $(function() {
     });
 
     new AppView().render();
-}); 
+});
 ```
 
 *See it on [jsfiddle](http://jsfiddle.net/bywires/NDy9q/)*
@@ -180,7 +181,7 @@ If the winner was picked here I'd have to say the first example, the one without
 * Next image button which is disabled on the last image
 * Border around the active thumbnail
 
-Our non-Backbone code grows to over 70 lines (2.3x increase) and starts looking a little unstructured.  It doesn't exactly offer up a solid pattern for building other similar UI components.
+Our non-Backbone code grows to about 70 lines (2.3x increase) and starts looking a little unstructured.  It doesn't exactly offer up a solid pattern for building other similar UI components.
 
 ```javascript
 $(function() {
@@ -227,14 +228,16 @@ $(function() {
         updateThumbnails();
     }
         
-    // add thumbnails    
+    // add thumbnails
+    var imgs = [];
     $.each(photos, function(index, photo) {
         var thumbnail = $('<img>')
             .prop('src', photo.thumbnail)
             .data(photo)
             .data('index', index);
-        thumbnails.append(thumbnail);
+        imgs.push(thumbnail);
     });
+    thumbnails.append(imgs);
     
     // listen for thumbnail clicks
     thumbnails.on('click', 'img', function() {
@@ -338,15 +341,14 @@ $(function() {
         },
         
         render: function() {
-            var $el = this.$el;
-            
+            var imgs = [];
             $.each(this.collection.models, function(index, photo) {
                 var thumbnail = $('<img>')
-                    .prop('src', photo.get('thumbnail'))
-                    .data('index', index);
-                
-                $el.append(thumbnail);
+                       .prop('src', photo.get('thumbnail'))
+                       .data('index', index);
+                imgs.push(thumbnail);
             });
+            this.$el.append(imgs);
             
             this.change();
             
@@ -455,13 +457,13 @@ $(function() {
 
 *See it on [jsfiddle](http://jsfiddle.net/bywires/fY7YE/)*
 
-My Backbone.js version grows to 191 lines (1.9x increase), but some interesting things are happening.
+My Backbone.js version grows to about 190 lines (1.9x increase), but some interesting things are happening.
 
 First, my Photos Collection became a richer Iterator library and there wasn't anything photo-specific in it so I created the IterableCollection class.  This generic class could undoubtedly be used in other parts of my application.  In our line-of-code comparison we could subtract 35 lines and write this up as a dependency.
 
 Second, I created the IteratorButtonView class which I extend twice.  Its very generic and could definitely be used in other projects since all it does is trigger iteration calls on my new IterableCollection type.  Subtract another 17 lines.
 
-The Backbone.js version has a lot more function and class declarations which, in JavaScript, comes with significantly more boilerplate code.  We're realistically comparing 70 lines to somewhere fairly south of 139 lines (<1.3x increase) with the bonus of three new classes that will save you time on future projects.
+The Backbone.js version has a lot more function and class declarations which, in JavaScript, comes with significantly more boilerplate code.  We're realistically comparing 70 lines to somewhere fairly south of 138 lines (1.3x increase) with the bonus of three new classes that will save you time on future projects.
 
 Backbone.js has other advantages to consider.  To name a few:
 
@@ -579,15 +581,14 @@ $(function() {
         },
         
         render: function() {
-            var $el = this.$el;
-            
+            var imgs = [];
             $.each(this.collection.models, function(index, photo) {
                 var thumbnail = $('<img>')
                     .prop('src', photo.thumbnail)
                     .data('index', index);
-                
-                $el.append(thumbnail);
+                imgs.push(thumbnail);
             });
+            this.$el.append(imgs);
             
             this.change();
             
@@ -705,7 +706,7 @@ $(function() {
     });
 
     new AppView().render();
-}); 
+});
 ```
 
 *See it on [jsfiddle](http://jsfiddle.net/bywires/K33Aq/)*
