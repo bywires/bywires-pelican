@@ -1,7 +1,7 @@
 Title: About
 Status: hidden
 
-My name is not really Colt Daggerfist.  I know thats is probably hard to accept so its OK if you need to sit down or walk away for a minutes while you cool off.  Call your family and tell them you love them then come back when you're ready.
+My name is not really Daggerfist.  I know thats is probably hard to accept so its OK if you need to sit down or walk away for a minutes while you cool off.  Call your family and tell them you love them then come back when you're ready.
 
 My real name is Bob McKee. I'm a software engineer working in Boston, MA.  I do not have daggers for fists nor do I possess any fist-to-dagger technology.
 
