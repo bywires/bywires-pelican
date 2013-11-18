@@ -43,7 +43,7 @@ $(function() {
     });
     
     // listen for thumbnail clicks
-    thumbnails.delegate('img', 'click', function() {
+    thumbnails.on('click', 'img', function() {
     	$('img', large).attr('src', $(this).data().large);
     });
     
@@ -237,7 +237,7 @@ $(function() {
     });
     
     // listen for thumbnail clicks
-    thumbnails.delegate('img', 'click', function() {
+    thumbnails.on('click', 'img', function() {
         updateGallery($(this).data('index'));
     });
     
@@ -574,7 +574,7 @@ $(function() {
         
         initialize: function(options) {
             this.collection = options.collection;
-            this.$el.delegate('img', 'click', this.click.bind(this));
+            this.$el.on('click', 'img', this.click.bind(this));
             this.collection.on('goto', this.change.bind(this));
         },
         
