@@ -78,6 +78,18 @@ input[type="text"]
       &:visited
         color: $content-link-visited-color
 
+  #content
+    .entry-content
+      .codehilite
+        clear: both
+
+// mobile
+@media (max-width: 320px)
+  #content
+    .entry-content
+      .jsfiddle
+        display: none
+
 
 // normal
 @media (min-width: 768px)
@@ -188,6 +200,20 @@ input[type="text"]
       @media (max-width: 768px)
         max-width: 100%
         height: auto
+
+    .float
+      &.right
+        margin-left: 10px
+        float: right
+        clear: right
+
+      &.left
+        margin-right: 10px
+        float: left
+        clear: left
+
+    .clear
+      clear: both
 
   .entry-meta
     border-top: 1px solid #EEE
