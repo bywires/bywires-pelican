@@ -268,9 +268,7 @@ Now to update the Backbone.js version.
 $(function() {
     var Photo = Backbone.Model.extend({});
     
-    var Photos = Backbone.Collection.extend({
-        model: Photo,
-        
+    var IterableCollecton = Backbone.Collection.extend({
         initialize: function() {
             this.index = 0;
         },
@@ -303,6 +301,10 @@ $(function() {
         isLast: function() {
             return this.index == this.length - 1;
         }
+    });
+    
+    var Photos = IterableCollecton.extend({
+        model: Photo
     });
     
     var LargeView = Backbone.View.extend({
