@@ -24,7 +24,7 @@ DISQUS_SITENAME = 'dev-bywires'
 
 FB_ADMINS = 'bywires'
 
-ARTICLE_DIR = 'articles'
+ARTICLE_PATHS = ['articles']
 ARTICLE_URL = 'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = 'articles/{category}/{slug}/index.html'
 
@@ -42,9 +42,13 @@ AUTHOR_SAVE_AS = False
 
 ARCHIVES_SAVE_AS = False
 
+LOAD_CONTENT_CACHE = False
+
+PLUGIN_PATHS = ['plugins']
+
 PLUGINS = [
-    'pelican.plugins.assets', 
-    'pelican.plugins.sitemap',
+    'assets',
+    'sitemap',
 ]
 
 WEBASSETS = True
@@ -71,8 +75,16 @@ THEME = 'themes/bywires'
 
 FEED_ALL_RSS = 'feeds/all.rss'
 
-FILES_TO_COPY = (
-    ('extra/.htaccess', '.htaccess'), 
-    ('extra/robots.txt', 'robots.txt'),
-    ('extra/favicon.ico', 'favicon.ico'),
-    )
+EXTRA_PATH_METADATA = {
+    'extra/.htaccess': {'path': '.htaccess'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+}
+
+STATIC_PATHS = [
+    'extra/.htaccess',
+    'extra/robots.txt',
+    'extra/favicon.ico'
+]
+
+MD_EXTENSIONS = ['fenced_code', 'codehilite(css_class=codehilite, linenums=True)', 'extra']

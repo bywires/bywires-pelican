@@ -3,8 +3,12 @@
 .#*
 *.pid
 *.pyc
-/output/
+output/
 .sass-cache/
-/Makefile
+Makefile
 .DS_Store
-/publishconf.py
+publishconf.py
+.idea
+cache/
+*.iml
+venv/
