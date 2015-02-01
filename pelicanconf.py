@@ -87,4 +87,4 @@ STATIC_PATHS = [
     'extra/favicon.ico'
 ]
 
-MD_EXTENSIONS = ['fenced_code', 'codehilite(css_class=codehilite, linenums=True)', 'extra']
+MD_EXTENSIONS = ['fenced_code', 'codehilite(css_class=codehilite)', 'extra']
