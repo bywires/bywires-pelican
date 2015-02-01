@@ -14,22 +14,22 @@ need code that takes user input, builds a request from that input, sends
 that request to the payment gateway, and gets a response back so we can
 act accordingly.
 
-<div class="code php" markdown="1">
-    <?$factory = new RequestFactory(); 
+```php
+$factory = new RequestFactory(); 
 
-    $builder = $factory->buildSaleRequest(); // get sale builder
+$builder = $factory->buildSaleRequest(); // get sale builder
 
-    $builder->withCreditCard() // get credit card, so we can set it
-        ->setCardType($_POST['cardType'])
-        ->setCardNumber($_POST['cardNumber'])
-        ->setExpirationDate($_POST['expirationDate']); 
+$builder->withCreditCard() // get credit card, so we can set it
+    ->setCardType($_POST['cardType'])
+    ->setCardNumber($_POST['cardNumber'])
+    ->setExpirationDate($_POST['expirationDate']); 
 
-    $builder->withBillingAddress() // get address, so we can set it
-        ->setCity($_POST['city'])
-        ->setState($_POST['state']); 
+$builder->withBillingAddress() // get address, so we can set it
+    ->setCity($_POST['city'])
+    ->setState($_POST['state']); 
 
-    $response = $builder->execute(); // send request to payment gateway
-</div>
+$response = $builder->execute(); // send request to payment gateway
+```
 
 This seems pretty simple. I have objects to accept my user input which
 execute the request and get the response. Marvellous. Under the hood its
@@ -51,19 +51,19 @@ place to stowaway configuration information. In Factories the
 configuration can be centralized, rather than forcing the consumer code
 to have to repeat configuration each time. For example:
 
-<div class="code php" markdown="1">
-    <?class CarFactory {
-        public function create() {
-            $car = new Car();
-            if($this->config->useElectricCars()) {
-                $car->setEngine(new ElectricEngine());
-            } else {
-                $car->setEngine(new EnvironmentDestroyingBeastEngine());
-            }
-            return $car;
+```php
+class CarFactory {
+    public function create() {
+        $car = new Car();
+        if($this->config->useElectricCars()) {
+            $car->setEngine(new ElectricEngine());
+        } else {
+            $car->setEngine(new EnvironmentDestroyingBeastEngine());
         }
+        return $car;
     }
-</div>
+}
+```
 
 We encapsulate the querying of the "config" object into this Factory
 method so we don't need to have other parts of the system be aware of
@@ -95,25 +95,26 @@ Are you doing this in your application code? You've written a library to
 create cars and car parts and everywhere you use this library you're
 repeating this process...
 
-<div class="code php" markdown="1">
-    <?$carPartFactory = new CarPartFactory();
-    $carFactory = new CarFactory();
-    $car = $carFactory->create();
+```php
+$carPartFactory = new CarPartFactory();
+$carFactory = new CarFactory();
+$car = $carFactory->create();
 
-    $car->setEngine($carPartFactory->createElectricEngine())
-        ->setWheels($carPartFactory->createGoodYearTires(4))
-        ->setStereo($carPartFactory->createBadAssStereo());
-</div>
+$car->setEngine($carPartFactory->createElectricEngine())
+    ->setWheels($carPartFactory->createGoodYearTires(4))
+    ->setStereo($carPartFactory->createBadAssStereo());
+```
+
 You're creating more than one factory to wire together collaborators.
 Its Builder time, bitches.
 
-<div class="code php" markdown="1">
-    <?$carBuilder = new CarBuilder();
-    $car = $carBuilder->addElectricEngine()
-                      ->addGoodYearTires(4)
-                      ->addBadAssStereo()
-                      ->build();
-</div>
+```php
+$carBuilder = new CarBuilder();
+$car = $carBuilder->addElectricEngine()
+                  ->addGoodYearTires(4)
+                  ->addBadAssStereo()
+                  ->build();
+```
 
 Its easier to use, less duplication, easier to read, *and* if you ever
 need to vary that creation process its already in place.
@@ -123,17 +124,17 @@ need to vary that creation process its already in place.
 Optional parameters are terrible. I think thats a whole post al by
 itself. For now, if you find yourself doing this...
 
-<div class="code php" markdown="1">
-    <?public function create($first, $last, $middle = '', $prefix = '', $suffix = '')
-</div>
+```php
+public function create($first, $last, $middle = '', $prefix = '', $suffix = '')
+```
 
 ...do this instead...
 
-<div class="code php" markdown="1">
-    <?$builder->first($first)
-              ->last($last)
-              ->middle($middle);
-</div>
+```php
+$builder->first($first)
+          ->last($last)
+          ->middle($middle);
+```
 
 ### Builders in Builders
 
@@ -152,24 +153,24 @@ method for configuring the same option, where the "set/add" just uses
 default settings and the "with" method lets you dig in, but only if you
 want to.
 
-<div class="code php" markdown="1">
-    <?// using "add"
-    $builder->addGoodYearTires();
+```php
+// using "add"
+$builder->addGoodYearTires();
 
-    // using "with"
-    $builder->withGoodYearTires() // returns TireBuilder
-        ->setFancyRims()
-        ->setSnowTires();
-    
-    class CarBuilder {
-        public function withGoodYearTires() {
-            // keep reference to builder so we can get its "product"
-            // and add it to the Car we're building
-            $this->_tireBuilder = new TireBuilder();
-            return $this->_tireBuilder;
-        }
+// using "with"
+$builder->withGoodYearTires() // returns TireBuilder
+    ->setFancyRims()
+    ->setSnowTires();
+
+class CarBuilder {
+    public function withGoodYearTires() {
+        // keep reference to builder so we can get its "product"
+        // and add it to the Car we're building
+        $this->_tireBuilder = new TireBuilder();
+        return $this->_tireBuilder;
     }
-</div>
+}
+```
 
 [Factory pattern]: http://en.wikipedia.org/wiki/Factory_method_pattern
 [Builder pattern]: http://en.wikipedia.org/wiki/Builder_pattern

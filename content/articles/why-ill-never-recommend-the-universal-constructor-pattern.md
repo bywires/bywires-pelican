@@ -18,12 +18,12 @@ The pattern is simple. Constructors take only one parameter ever. That
 one parameter contains a hash of option/setting pairs (configuration).
 Here's an example of where you might see something like this...
 
-<div class="code php" markdown="1">
-    <?$userImporter = new UserImporter(array(
-        'enable_deduping' => true,
-        'email_admin_on_failure' => true,
-        'import_batch_size' => 1000));
-</div>
+```php
+$userImporter = new UserImporter(array(
+    'enable_deduping' => true,
+    'email_admin_on_failure' => true,
+    'import_batch_size' => 1000));
+```
 
 Code that uses this pattern is notorious for breaking the [Single
 Responsibility Principle][]. Breaking this principle leads to tightly
@@ -40,18 +40,18 @@ Jesus to the cross.
 This approach appears to solve one problem: it gets rid of that long
 optional parameter list which leads to code like so...
 
-<div class="code php" markdown="1">
-    <?class UserImport {
-        public function __construct($enableDeduping = true, $enableEmailOnFailure = false, $batchSize = 1000) {
-            // ...
-        }
+```php
+class UserImport {
+    public function __construct($enableDeduping = true, $enableEmailOnFailure = false, $batchSize = 1000) {
+        // ...
     }
+}
 
-    $userImport = new UserImport(
-                      true,  // default
-                      false, // default
-                      2000   // custom setting!);
-</div>
+$userImport = new UserImport(
+                  true,  // default
+                  false, // default
+                  2000   // custom setting!);
+```
 
 You're repeating defaults all over the place to get to that last
 optional value. You can never remember which parameter it is without
@@ -64,20 +64,20 @@ together because there are too many responsibilities that correspond to.
 Here a slightly modified example that might be a scenario where you'd
 actually use setters for your optional parameters.
 
-<div class="code php" markdown="1">
-    <?class UserImport {
-        public function __construct(Framework_DatabaseConnection $databaseConnection) {
-            $this->_databaseConnection = $databaseConnection;
-            // implements logger interface but does not write logs or actually do anything 
-            // else.  this is my default logger value.
-            $this->_logger = new Framework_Logger_Null();
-        }
-
-        public function setLogger(Framework_Logger $logger) {
-            $this->_logger = $logger;
-        }
+```php
+class UserImport {
+    public function __construct(Framework_DatabaseConnection $databaseConnection) {
+        $this->_databaseConnection = $databaseConnection;
+        // implements logger interface but does not write logs or actually do anything 
+        // else.  this is my default logger value.
+        $this->_logger = new Framework_Logger_Null();
     }
-</div>
+
+    public function setLogger(Framework_Logger $logger) {
+        $this->_logger = $logger;
+    }
+}
+```
 
 In this case rather than having an optional logger in the constructor
 with default value I just set the object's logger to the default, a

@@ -13,29 +13,29 @@ other way. Its an oddly unconscious decision.
 
 Consider the following code:
 
-<div class="code php" markdown="1">
-    <?try {
-        $http->get('/~bob');
-        // do something} catch (Http_Exception $e) {
-        if($e->getCode() == 404) {
-            // do something else
-        }
+```php
+try {
+    $http->get('/~bob');
+    // do something} catch (Http_Exception $e) {
+    if($e->getCode() == 404) {
+        // do something else
     }
-</div>
+}
+```
 
 When you use things like well-established HTTP status codes this almost
 seems reasonable. It gets a little weirder when you're talking about
 some internal code defined in some package no one knows anything about.
 Take this bank account withdrawal example:
 
-<div class="code php" markdown="1">
-    <?try {
-        $customerBankAccount->withdraw(100);} catch (CustomerBankAccount_Exception $e) {
-        if($e->getCode() == 123) {
-            // 123 means they overcharged their account, SHIT!
-        }
+```php
+try {
+    $customerBankAccount->withdraw(100);} catch (CustomerBankAccount_Exception $e) {
+    if($e->getCode() == 123) {
+        // 123 means they overcharged their account, SHIT!
     }
-</div>
+}
+```
 
 My problem with this is that we're using two tools for a single purpose.
 What is the purpose of an Exception subtype, Http\_Exception or
@@ -56,9 +56,9 @@ Better example time - GO!
 
 This is more descriptive...
 
-<div class="code php" markdown="1">
-    <?} catch (Http_Exception_NotFound $e) {
-</div>
+```php
+} catch (Http_Exception_NotFound $e) {
+```
 
 Sure, we all know what a 404 is anyway, but what about a 402 or a 203 or
 a 912 (Glenn Beck Logic Not Found)? If you're writing this code you're
@@ -68,9 +68,9 @@ if was just looking at some plain English exception class names.
 
 If you want to catch all those 4xx-class exceptions why not...
 
-<div class="code php" markdown="1">
-    <?} catch (Http_Exception_ClientError $e) {
-</div>
+```php
+} catch (Http_Exception_ClientError $e) {
+```
 
 (The official category of 4xx errors is "Client Error")
 

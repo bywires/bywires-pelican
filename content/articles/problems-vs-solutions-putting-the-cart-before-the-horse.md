@@ -40,78 +40,78 @@ Eddy is working on a game where the user can choose their own character and give
 
 Eddy starts with the introduction part.
 
-<div class="code php" markdown="1">
-    <?interface Character {
-		public function introduce();
+```php
+interface Character {
+	public function introduce();
+}
+
+class Bob implements Character {
+	public function introduce() {
+		return "Hi, I'm Bob.";
 	}
-	
-	class Bob implements Character {
-		public function introduce() {
-			return "Hi, I'm Bob.";
-		}
-	}
-</div>
+}
+```
 
 Great!  How about those alternate speech styles...
 
-<div class="code php" markdown="1">
-    <?class SlangDecorator implements Character {
-		// ...
-		public function introduce() {
-			return str_replace(
-				'Hi', 'Sup',
-				$this->_decorated_character->introduce()
-			);
-		}		
-	}
-	
-	class FeignExcitementDecorator implements Character {
-		// ...
-		public function introduce() {
-			return strtoupper(
-				$this->_decorated_character->introduce()
-			);
-		}		
-	}
-</div>
+```php
+class SlangDecorator implements Character {
+	// ...
+	public function introduce() {
+		return str_replace(
+			'Hi', 'Sup',
+			$this->_decorated_character->introduce()
+		);
+	}		
+}
+
+class FeignExcitementDecorator implements Character {
+	// ...
+	public function introduce() {
+		return strtoupper(
+			$this->_decorated_character->introduce()
+		);
+	}		
+}
+```
 
 Its flexible where we need it to be flexible.  OK Edddy, lets get the character's ID.
 
-<div class="code php" markdown="1">
-    <?interface Character {
-		public function introduce();
-		public function id();
+```php
+interface Character {
+	public function introduce();
+	public function id();
+}
+
+class Bob implements Character {
+	// ...
+	public function introduce() {
+		return "Hi, I'm Bob.";
 	}
 	
-	class Bob implements Character {
-		// ...
-		public function introduce() {
-			return "Hi, I'm Bob.";
-		}
-		
-		public function id() {
-			return this->_id;
-		}
+	public function id() {
+		return this->_id;
 	}
+}
 
-	class SlangDecorator implements Character {
-		// ...
-		public function introduce() { /* ... */ }
+class SlangDecorator implements Character {
+	// ...
+	public function introduce() { /* ... */ }
 
-		public function id() {
-			return $this->_decorated_character->id();
-		}
+	public function id() {
+		return $this->_decorated_character->id();
 	}
-	
-	class FeignExcitementDecorator implements Character {
-		// ...
-		public function introduce() { /* ... */ }
+}
 
-		public function id() {
-			return $this->_decorated_character->id();
-		}
+class FeignExcitementDecorator implements Character {
+	// ...
+	public function introduce() { /* ... */ }
+
+	public function id() {
+		return $this->_decorated_character->id();
 	}
-</div>
+}
+```
 
 Not so hot.  Do you feel the *tension*?  These *decorators* don't really care about `id()`.  They only care about `introduce()`.  If Eddy needs to add more speech styles the problem gets compounded because `id()` gets repeated even more.  If the `Character` interface needs more methods added then all the *decorators* also need to have those methods added.  This is *tension*.  If I want to add something simple its harder than it needs to be with this design and this extra work provides no benefit whatsoever.  More boilerplate.  More waste.
 

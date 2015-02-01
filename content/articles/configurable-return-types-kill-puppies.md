@@ -9,12 +9,12 @@ Here's some code you could see using [PHP's Adodb][] library. The
 library isn't the point but its demonstrates a pattern I see a fair
 amount.
 
-<div class="code php" markdown="1">
-    <?$oldFetchMode = $conn->setFetchMode(ADODB_FETCH_ASSOC);
-    $recordSet = $conn->execute("SELECT * FROM table");
-    $objectThatDoesWork->work($recordSet);
-    $conn->setFetchMode($oldFetchMode);
-</div>
+```php
+$oldFetchMode = $conn->setFetchMode(ADODB_FETCH_ASSOC);
+$recordSet = $conn->execute("SELECT * FROM table");
+$objectThatDoesWork->work($recordSet);
+$conn->setFetchMode($oldFetchMode);
+```
 
 To me this is a multi-fail.
 
@@ -45,10 +45,10 @@ pretend it never existed, but it does and its scaring the kids.
 Luckily, there is actually a easy enough solution to this problem. Take
 a look at this rewrite.
 
-<div class="code php" markdown="1">
-    <?$recordSetFactory = $conn->execute("SELECT * FROM table");
-    $objectThatDoesWork->work($recordSetFactory->asAssoc());
-</div>
+```php
+$recordSetFactory = $conn->execute("SELECT * FROM table");
+$objectThatDoesWork->work($recordSetFactory->asAssoc());
+```
 
 $recordSetFactory has the underlying record set resource stored
 privately.

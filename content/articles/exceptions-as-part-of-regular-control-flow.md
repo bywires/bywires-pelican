@@ -43,16 +43,16 @@ thought deeply about exception usage would never dream up this code.
 Still, I believe this might be the perfect example of what people are
 talking about when they say not to use exceptions for control flow.
 
-<div class="code java" markdown="1">
-    void search( TreeNode node, Object data ) throws ResultException {
-        if (node.data.equals( data ))
-            throw new ResultException( node );
-        else {
-            search( node.leftChild, data );
-            search( node.rightChild, data );
-        }
+```java
+void search( TreeNode node, Object data ) throws ResultException {
+    if (node.data.equals( data ))
+        throw new ResultException( node );
+    else {
+        search( node.leftChild, data );
+        search( node.rightChild, data );
     }
-</div>
+}
+```
 
 Get it now? As a starting point I think we can all agree that this it
 batty. Its a search algorithm that throws an exception upon *success*.
@@ -62,11 +62,11 @@ violated.
 
 ## Exceptions as commands to the caller
 
-<div class="code php" markdown="1">
-    <?} catch(MyService_Exception_CouldNotBeReached $e) {
-        throw new MyOtherService_Exception_Retry("Couldn't reach my service, retry!");
-    }
-</div>
+```php
+} catch(MyService_Exception_CouldNotBeReached $e) {
+    throw new MyOtherService_Exception_Retry("Couldn't reach my service, retry!");
+}
+```
 
 This exception seems to be commanding the caller to retry something.
 Like the previous example, this also breaks the [Principle of Least
@@ -80,12 +80,12 @@ application-agnostic service making application-specific decisions
 
 [c2.com][] offers us another gem, and I don't mean that negatively.
 
-<div class="code java" markdown="1">
-    try {
-        for (int i = 0; /*wot no test?*/ ; i++)
-            array[i]++;
-    } catch (ArrayIndexOutOfBoundsException e) {}
-</div>
+```java
+try {
+    for (int i = 0; /*wot no test?*/ ; i++)
+        array[i]++;
+} catch (ArrayIndexOutOfBoundsException e) {}
+```
 
 The first thing when I thought when I saw this was "What about things
 like Python's StopIteration?" One line later its mentioned. Yay! This
@@ -103,11 +103,11 @@ exception type rather than using a language generic exception with a
 name that is a command. Maybe something like this (which I would not be
 surprised to find already exists somewhere):
 
-<div class="code php" markdown="1">
-    <?until(RecordNotFoundException $e) {
-        print $recordSet->getNext()->getLabel() . "\n";
-    }
-</div>
+```php
+until(RecordNotFoundException $e) {
+    print $recordSet->getNext()->getLabel() . "\n";
+}
+```
 
 [http://en.wikipedia.org/wiki/Control\_flow]: http://en.wikipedia.org/wiki/Control_flow
 [Exceptions vs Null]: http://blog.bywires.com/2010/08/exceptions-vs-null.html
