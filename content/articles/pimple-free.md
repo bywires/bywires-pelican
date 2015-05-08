@@ -225,3 +225,5 @@ $app->api->client = MockApiClient();
 ```
 
 This simple system should enable the user to take advantage of a powerful IDE and help them understand a system that uses a Dependency Injection Container more easily than a Pimple-based system.  I'll update this post shortly once I've created a Composer package for the code in this article.
+
+**UPDATE**: Check [Pedic](https://github.com/bywires/pedic) out on Github!
