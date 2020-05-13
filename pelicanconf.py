@@ -44,7 +44,7 @@ ARCHIVES_SAVE_AS = False
 
 LOAD_CONTENT_CACHE = False
 
-PLUGIN_PATHS = ['plugins']
+PLUGIN_PATHS = ['../pelican-plugins']
 
 PLUGINS = [
     'assets',
@@ -53,9 +53,7 @@ PLUGINS = [
 
 WEBASSETS = True
 
-JINJA_EXTENSIONS = [
-    'jinja2.ext.do',
-]
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.do']}
 
 SITEMAP = {
     'format': 'xml',
@@ -87,4 +85,12 @@ STATIC_PATHS = [
     'extra/favicon.ico'
 ]
 
-MD_EXTENSIONS = ['fenced_code', 'codehilite(css_class=codehilite)', 'extra']
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'codehilite'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+        'markdown.extensions.fenced_code': {},
+    },
+    'output_format': 'html5',
+}

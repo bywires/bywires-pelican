@@ -12,6 +12,6 @@
     {% do open_graph_defaults.update(open_graph) %}
 {% endif %}
 
-{% for property, content in open_graph_defaults.iteritems() %}
+{% for property, content in open_graph_defaults.items() %}
     <meta property="{{ property }}" content="{{ content|e }}"/>
 {% endfor %}
