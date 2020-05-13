@@ -4,7 +4,7 @@
 from datetime import date
 
 AUTHOR = u'Bob McKee'
-SITENAME = u'Daggerfist'
+SITENAME = u'Bywires'
 SITEURL = 'http://localhost:8000'
 
 TIMEZONE = 'America/New_York'
