@@ -44,7 +44,9 @@ ARCHIVES_SAVE_AS = False
 
 LOAD_CONTENT_CACHE = False
 
-PLUGIN_PATHS = ['../pelican-plugins']
+PLUGIN_PATHS = [
+    '../pelican-plugins', # Follow instructions https://github.com/getpelican/pelican-plugins
+]
 
 PLUGINS = [
     'assets',
